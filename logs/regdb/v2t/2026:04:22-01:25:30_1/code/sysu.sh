@@ -1,0 +1,21 @@
+python3 main.py \
+--dataset sysu \
+--debug wsl \
+--save-path sysu_agw \
+--arch resnet \
+--stage1-epoch 20 \
+--milestone 30 70 \
+--lr 0.0003 \
+--device 2 \
+--search-mode all 
+
+python3 main.py \
+--dataset sysu \
+--debug wsl \
+--save-path sysu_agw \
+--arch resnet \
+--stage1-epoch 20 \
+--milestone 30 70 \
+--lr 0.0003 \
+--device 2 \
+--search-mode indoor 
