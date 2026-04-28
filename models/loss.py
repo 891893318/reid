@@ -1,5 +1,6 @@
 import torch 
 import torch.nn as nn
+import torch.nn.functional as F
 def normalize(x, axis=-1):
     x = 1. * x / (torch.norm(x, 2, axis, keepdim=True).expand_as(x) + 1e-12)
     return x
@@ -73,3 +74,23 @@ class Weak_loss(nn.Module):
         mask = (scores < label_probs).int()    
         criterion = lambda x: -((1. - x + eps).log() * mask).sum(1).mean()
         return criterion(scores)
+
+
+class SoftCrossEntropyLoss(nn.Module):
+    def __init__(self, eps=1e-12):
+        super().__init__()
+        self.eps = eps
+
+    def forward(self, logits, soft_targets, sample_weights=None):
+        if logits.numel() == 0 or soft_targets.numel() == 0:
+            return logits.new_tensor(0.0)
+
+        soft_targets = soft_targets / soft_targets.sum(dim=1, keepdim=True).clamp_min(self.eps)
+        log_probs = F.log_softmax(logits, dim=1)
+        per_sample = -(soft_targets * log_probs).sum(dim=1)
+
+        if sample_weights is not None:
+            sample_weights = sample_weights.reshape(-1).to(per_sample.dtype)
+            normalizer = sample_weights.sum().clamp_min(self.eps)
+            return (per_sample * sample_weights).sum() / normalizer
+        return per_sample.mean()

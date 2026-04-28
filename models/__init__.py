@@ -8,7 +8,7 @@ from utils import os_walk
 from .agw import AGW
 from .clip_model import CLIP
 from .optim import WarmupMultiStepLR
-from .loss import TripletLoss_WRT, Weak_loss
+from .loss import TripletLoss_WRT, Weak_loss, SoftCrossEntropyLoss
 _models = {
     "resnet": AGW,  # visual encoder AGW, no text encoder
     "clip-resnet": CLIP,  # resnet50 + transformer
@@ -78,6 +78,7 @@ class Model:
         self.pid_criterion = torch.nn.CrossEntropyLoss()
         self.tri_criterion = TripletLoss_WRT()
         self.weak_criterion = Weak_loss()
+        self.soft_pid_criterion = SoftCrossEntropyLoss()
 
     def set_train(self):
         self.model.train()
