@@ -1,0 +1,31 @@
+python3 main.py \
+--dataset llcm \
+--debug wsl \
+--save-path llcm \
+--arch resnet \
+--stage1-epoch 80 \
+--milestone 30 70 \
+--lr 0.0003 \
+--device 2 \
+--test-mode t2v \
+--cre-sample-rate 1.0 \
+--enable-rgmfd 1 \
+--rgmfd-rel-weight 0.2 \
+--rgmfd-orth-weight 0.05 \
+--rgmfd-gate-reg-weight 0.01
+
+python3 main.py \
+--dataset llcm \
+--debug wsl \
+--save-path llcm \
+--arch resnet \
+--stage1-epoch 80 \
+--milestone 30 70 \
+--lr 0.0003 \
+--device 2 \
+--test-mode v2t \
+--cre-sample-rate 1.0 \
+--enable-rgmfd 1 \
+--rgmfd-rel-weight 0.2 \
+--rgmfd-orth-weight 0.05 \
+--rgmfd-gate-reg-weight 0.01

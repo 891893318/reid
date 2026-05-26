@@ -1,63 +1,67 @@
-python3 main.py \
---dataset regdb \
---debug wsl \
---save-path regdb \
---arch resnet \
---trial 1 \
---lr 0.00055 \
---device 2 \
---test-mode t2v \
---stage1-epoch 50 \
---milestones 50 70 \
-\
---enable-fimro 1 \
---phase2-pseudo-warmup 40 \
---phase2-pseudo-start-weight 0.2 \
---phase2-pseudo-max-weight 0.5 \
---phase2-pseudo-end-weight 0.3 \
---phase2-pseudo-decay-epoch 70 \
---phase2-adaptive-pseudo 1 \
---phase2-pseudo-quality-floor 0.5 \
---fimro-alpha 0.02 \
---fimro-beta 0.02 \
---fimro-low-ratio 0.25 \
---fimro-low-noise 0.15 \
---fimro-fuse-scale 0.0 \
---fimro-mask-mode square \
---enable-soft-relation 0 \
---soft-relation-temp 0.07 \
---soft-lambda-v2r 0.4 \
---soft-lambda-r2v 0.4 \
---soft-lambda-proto 0.2 \
---soft-cm-weight 0.05 \
---cmo-weight 0.3 \
---scrc-cm-weight 0.0 \
---scrc-bi-weight 0.0 \
---scrc-proto-weight 0.0 \
---num-workers 32
+#!/usr/bin/env bash
+set -euo pipefail
 
-# python3 main.py \
-# --dataset regdb \
-# --debug wsl \
-# --save-path regdb \
-# --arch resnet \
-# --trial 1 \
-# --stage1-epoch 50 \
-# --milestones 50 70 \
-# --lr 0.00055 \
-# --device 0 \
-# --test-mode v2t \
-# --enable-fimro 1 \
-# --fimro-alpha 0.02 \
-# --fimro-beta 0.02 \
-# --fimro-low-ratio 0.25 \
-# --fimro-low-noise 0.15 \
-# --fimro-fuse-scale 0.0 \
-# --fimro-mask-mode square \
-# --enable-soft-relation 1 \
-# --soft-relation-temp 0.07 \
-# --soft-lambda-v2r 0.4 \
-# --soft-lambda-r2v 0.4 \
-# --soft-lambda-proto 0.2 \
-# --soft-cm-weight 0.05 \
-# --num-workers 32
+# Usage:
+#   bash regdb.sh          # run t2v and v2t for trials 1..10
+#   bash regdb.sh t2v      # run t2v for trials 1..10
+#   bash regdb.sh v2t      # run v2t for trials 1..10
+#   DEVICE=2 bash regdb.sh t2v
+#   START_TRIAL=3 END_TRIAL=5 bash regdb.sh both
+
+mode="${1:-both}"
+device="${DEVICE:-3}"
+start_trial="${START_TRIAL:-1}"
+end_trial="${END_TRIAL:-10}"
+
+common_args=(
+  --dataset regdb
+  --debug wsl
+  --save-path regdb
+  --arch resnet
+  --stage1-epoch 50
+  --milestones 50 70
+  --lr 0.00055
+  --device "${device}"
+  --num-workers 32
+  --cre-sample-rate 1.0
+  --enable-rgmfd 1
+  --rgmfd-rel-weight 0.2
+  --rgmfd-orth-weight 0.05
+  --rgmfd-gate-reg-weight 0.01
+)
+
+run_one() {
+  local test_mode="$1"
+  local trial="$2"
+
+  echo "Running RegDB ${test_mode}, trial ${trial}"
+  python3 main.py \
+    "${common_args[@]}" \
+    --test-mode "${test_mode}" \
+    --trial "${trial}"
+}
+
+run_mode() {
+  local test_mode="$1"
+  local trial
+
+  for trial in $(seq "${start_trial}" "${end_trial}"); do
+    run_one "${test_mode}" "${trial}"
+  done
+}
+
+case "${mode}" in
+  t2v|v2t)
+    run_mode "${mode}"
+    ;;
+
+  both)
+    run_mode t2v
+    run_mode v2t
+    ;;
+
+  *)
+    echo "Usage: bash regdb.sh {t2v|v2t|both}"
+    exit 2
+    ;;
+esac

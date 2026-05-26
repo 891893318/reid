@@ -4,7 +4,6 @@ import argparse
 import setproctitle
 import torch
 import warnings
-import copy
 
 import time
 import datasets
@@ -18,8 +17,6 @@ warnings.filterwarnings("ignore")
 def main(args):
     best_rank1 = 0
     best_mAP = 0
-    best_phase1_state = None
-    best_phase1_epoch = 0
     log_path = os.path.join(args.save_path, "log/")
     model_path = os.path.join(args.save_path, "models/")
     code_path = os.path.join(args.save_path, "code/")
@@ -68,15 +65,6 @@ def main(args):
                 model.scheduler_phase1.step(current_epoch)
                 _, result = train(args, model, dataset, current_epoch,cma,logger,enable_phase1)
                 cmc, mAP, mINP = test(args, model, dataset,current_epoch) 
-                is_phase1_best = cmc[0] > best_rank1 or (cmc[0] == best_rank1 and mAP > best_mAP)
-                if is_phase1_best:
-                    best_phase1_epoch = current_epoch + 1
-                    best_phase1_state = {
-                        'model': copy.deepcopy(model.model.state_dict()),
-                        'classifier1': copy.deepcopy(model.classifier1.state_dict()),
-                        'classifier2': copy.deepcopy(model.classifier2.state_dict()),
-                        'classifier3': copy.deepcopy(model.classifier3.state_dict()),
-                    }
                 best_rank1 = max(cmc[0], best_rank1)
                 best_mAP = max(mAP, best_mAP)
                 logger('Time: {} | phase 1 epoch {}; Setting: {}'.format(time_now(), current_epoch+1, args.save_path))
@@ -86,13 +74,8 @@ def main(args):
                        Best_R1: {:.4f};    Best mAP: {:.4f}'\
                        .format(cmc[0], cmc[9], cmc[19],mAP, mINP,best_rank1,best_mAP))
                 logger('=================================================')
-            if best_phase1_state is not None:
-                model.model.load_state_dict(best_phase1_state['model'])
-                model.classifier1.load_state_dict(best_phase1_state['classifier1'])
-                model.classifier2.load_state_dict(best_phase1_state['classifier2'])
-                model.classifier3.load_state_dict(best_phase1_state['classifier3'])
-                save_checkpoint(args, model, best_phase1_epoch)
-                logger('Time: {} | restore best phase1 epoch {} before phase2'.format(time_now(), best_phase1_epoch))
+                if current_epoch == args.stage1_epoch-1:
+                    save_checkpoint(args,model,current_epoch+1)
         enable_phase1 = False
         start_epoch = model.resume_epoch
         logger('Time: {} | start phase2 from epoch {}'.format(time_now(), start_epoch))
@@ -154,21 +137,6 @@ def get_parser():
     parser.add_argument('--sigma', default=0.8, type=float, help='momentum update factor')
     parser.add_argument('-T', '--temperature', default=3, type=float, help='Temperature parameter of softmax')
     parser.add_argument('--num-cams', default=1, type=int, dest='num_cams', help='number of train-time cameras or pseudo-cameras')
-    parser.add_argument('--enable-fimro', default=1, type=int, dest='enable_fimro', help='enable phase-1 frequency intra-modal robust expert learning')
-    parser.add_argument('--fimro-alpha', default=0.02, type=float, dest='fimro_alpha', help='weight of low-frequency consistency loss')
-    parser.add_argument('--fimro-beta', default=0.02, type=float, dest='fimro_beta', help='weight of high-frequency auxiliary ID loss')
-    parser.add_argument('--fimro-low-ratio', default=0.25, type=float, dest='fimro_low_ratio', help='normalized low-frequency radius ratio')
-    parser.add_argument('--fimro-low-noise', default=0.15, type=float, dest='fimro_low_noise', help='perturbation scale for low-frequency consistency branch')
-    parser.add_argument('--fimro-fuse-scale', default=0.0, type=float, dest='fimro_fuse_scale', help='residual fusion scale for high-frequency features')
-    parser.add_argument('--fimro-mask-mode', default='square', type=str, dest='fimro_mask_mode', help='mask shape for frequency split: square or circle')
-    parser.add_argument('--enable-soft-relation', default=1, type=int, dest='enable_soft_relation', help='enable confidence-weighted soft cross-modal relation')
-    parser.add_argument('--soft-relation-temp', default=0.07, type=float, dest='soft_relation_temp', help='temperature for soft relation normalization')
-    parser.add_argument('--soft-lambda-v2r', default=0.4, type=float, dest='soft_lambda_v2r', help='weight of visible-to-infrared expert probability in soft relation')
-    parser.add_argument('--soft-lambda-r2v', default=0.4, type=float, dest='soft_lambda_r2v', help='weight of infrared-to-visible expert probability in soft relation')
-    parser.add_argument('--soft-lambda-proto', default=0.2, type=float, dest='soft_lambda_proto', help='weight of prototype cosine similarity in soft relation')
-    parser.add_argument('--soft-cm-weight', default=0.05, type=float, dest='soft_cm_weight', help='weight of soft cross-modal classification loss')
-    parser.add_argument('--cmo-weight', default=1.0, type=float, dest='cmo_weight',
-                        help='weight of phase-2 CMO memory distillation loss')
     parser.add_argument('--scrc-relation-temp', default=0.07, type=float, dest='scrc_relation_temp', help='temperature for soft cross-modal relation')
     parser.add_argument('--scrc-lambda-instance', default=0.5, type=float, dest='scrc_lambda_instance', help='instance similarity weight in SCRC relation')
     parser.add_argument('--scrc-lambda-cam', default=0.25, type=float, dest='scrc_lambda_cam', help='camera-aware prototype weight in SCRC relation')
@@ -176,23 +144,55 @@ def get_parser():
     parser.add_argument('--scrc-cm-weight', default=0.2, type=float, dest='scrc_cm_weight', help='weight of SCRC cross-modal alignment loss')
     parser.add_argument('--scrc-bi-weight', default=0.05, type=float, dest='scrc_bi_weight', help='weight of SCRC bidirectional consistency loss')
     parser.add_argument('--scrc-proto-weight', default=0.05, type=float, dest='scrc_proto_weight', help='weight of SCRC prototype regularization')
+    parser.add_argument('--enable-rgmfd', default=0, type=int, help='enable reliability-guided modality-invariant feature decoupling')
+    parser.add_argument('--rgmfd-reduction', default=16, type=int, help='channel reduction ratio in RG-MFD gate')
+    parser.add_argument('--rgmfd-gate-scale', default=0.5, type=float, help='residual scale for RG-MFD shared feature gate')
+    parser.add_argument('--rgmfd-start-epoch', default=0, type=int, help='phase epoch to start RG-MFD auxiliary losses')
+    parser.add_argument('--rgmfd-rel-weight', default=0.2, type=float, help='weight of reliable common-relation alignment for RG-MFD')
+    parser.add_argument('--rgmfd-orth-weight', default=0.05, type=float, help='weight of shared-specific orthogonality for RG-MFD')
+    parser.add_argument('--rgmfd-gate-reg-weight', default=0.01, type=float, help='weight of RG-MFD gate balance regularization')
+    parser.add_argument('--rgmfd-gate-target', default=0.5, type=float, help='target average shared gate value for RG-MFD')
+    parser.add_argument('--disable-structured-indoor', default=1, type=int, help='disable structured local branch for SYSU indoor search')
+    parser.add_argument('--cre-confidence', default=0, type=int, help='use confidence-aware cross-modal relation establishment')
+    parser.add_argument('--cre-sample-rate', default=1.0, type=float, help='candidate sample rate for cross-modal relation mining')
+    parser.add_argument('--cre-count-weight', default=0, type=float, help='count-priority weight in confidence-aware CRE')
+    parser.add_argument('--cre-prob-weight', default=0, type=float, help='classification probability weight in confidence-aware CRE')
+    parser.add_argument('--cre-margin-weight', default=0, type=float, help='top1-top2 margin weight in confidence-aware CRE')
+    parser.add_argument('--cre-entropy-weight', default=0, type=float, help='prediction certainty weight in confidence-aware CRE')
+    parser.add_argument('--cre-proto-weight', default=0, type=float, help='cross-modal prototype similarity weight in confidence-aware CRE')
+    parser.add_argument('--cre-min-margin-start', default=0.0, type=float, help='initial margin filter for confidence-aware CRE')
+    parser.add_argument('--cre-min-margin-end', default=0.0, type=float, help='final margin filter for confidence-aware CRE')
+    parser.add_argument('--cre-margin-decay-epoch', default=0, type=int, help='epochs used to relax the CRE margin filter')
+    parser.add_argument('--enable-trrm', default=0, type=int, help='enable temporal reliability relation memory')
+    parser.add_argument('--trrm-momentum', default=0.8, type=float, help='momentum for temporal relation reliability memory')
+    parser.add_argument('--trrm-specific-start', default=20, type=int, help='phase2 epoch to start using stable specific relations')
+    parser.add_argument('--trrm-specific-streak', default=2, type=int, help='minimum consecutive epochs for a specific relation')
+    parser.add_argument('--trrm-specific-threshold', default=0.2, type=float, help='minimum memory score for a specific relation')
+    parser.add_argument('--trrm-specific-max-ratio', default=1.0, type=float, help='maximum ratio of reliable specific relations kept each epoch, 1.0 disables the cap')
+    parser.add_argument('--trrm-specific-max-num', default=0, type=int, help='maximum number of reliable specific relations kept each epoch, 0 disables the cap')
+    parser.add_argument('--trrm-specific-ramp', default=0, type=int, help='epochs used to ramp up the specific relation loss weight, 0 disables ramp')
+    parser.add_argument('--trrm-specific-weight', default=0.3, type=float, help='loss weight for reliable specific relations')
+    parser.add_argument('--trrm-remain-start', default=60, type=int, help='phase2 epoch to start weak supervision for remain relations')
+    parser.add_argument('--trrm-remain-weight', default=0.2, type=float, help='extra loss weight for remain weak supervision')
+    parser.add_argument('--enable-remain-gate', default=0, type=int, help='enable confidence filtering for remain weak supervision')
+    parser.add_argument('--remain-gate-keep-ratio', default=0.7, type=float, help='top ratio of remain samples kept by confidence gate')
+    parser.add_argument('--remain-gate-max-num', default=0, type=int, help='maximum number of remain samples kept per batch, 0 disables the cap')
+    parser.add_argument('--remain-gate-min-prob', default=0.0, type=float, help='minimum classifier probability on remain candidate labels')
+    parser.add_argument('--remain-gate-min-margin', default=0.0, type=float, help='minimum top1-top2 margin for remain weak samples')
+    parser.add_argument('--remain-gate-min-certainty', default=0.0, type=float, help='minimum entropy-based certainty for remain weak samples')
+    parser.add_argument('--remain-gate-margin-weight', default=0.5, type=float, help='margin weight in remain gate score')
+    parser.add_argument('--remain-gate-entropy-weight', default=0.3, type=float, help='entropy certainty weight in remain gate score')
+    parser.add_argument('--enable-rdl', default=0, type=int, help='enable relation-guided dynamic loss weighting')
+    parser.add_argument('--rdl-warmup', default=5, type=int, help='epochs used to warm up dynamic relation weights')
+    parser.add_argument('--rdl-coverage-weight', default=0.5, type=float, help='coverage contribution in relation reliability')
+    parser.add_argument('--rdl-stability-weight', default=0.5, type=float, help='stability contribution in relation reliability')
+    parser.add_argument('--rdl-common-boost', default=0.05, type=float, help='maximum boost for reliable common relation losses')
+    parser.add_argument('--rdl-specific-min', default=0.7, type=float, help='minimum weight for specific relation loss')
+    parser.add_argument('--rdl-remain-min', default=0.5, type=float, help='minimum weight for remain weak loss')
+    parser.add_argument('--rdl-remain-ratio-weight', default=0.25, type=float, help='penalty for high remain relation ratio')
     parser.add_argument("--device", default=0, type=int, help="gpu")
     parser.add_argument('--stage1-epoch' ,default=20, type=int,help='s:20, l:80, r:50')
     parser.add_argument('--stage2-epoch' ,default=120, type=int,help='CMCL total epoch')
-    parser.add_argument('--phase2-pseudo-warmup', default=0, type=int, dest='phase2_pseudo_warmup',
-                        help='epochs used to ramp up noisy cross-modal pseudo supervision in phase 2')
-    parser.add_argument('--phase2-pseudo-start-weight', default=0.2, type=float, dest='phase2_pseudo_start_weight',
-                        help='initial weight for phase-2 pseudo supervision ramp')
-    parser.add_argument('--phase2-pseudo-max-weight', default=1.0, type=float, dest='phase2_pseudo_max_weight',
-                        help='maximum weight for phase-2 pseudo supervision ramp')
-    parser.add_argument('--phase2-pseudo-end-weight', default=-1.0, type=float, dest='phase2_pseudo_end_weight',
-                        help='final phase-2 pseudo supervision weight after cosine decay; negative disables decay')
-    parser.add_argument('--phase2-pseudo-decay-epoch', default=-1, type=int, dest='phase2_pseudo_decay_epoch',
-                        help='phase-2 epoch where pseudo supervision reaches end weight; negative uses stage2_epoch')
-    parser.add_argument('--phase2-adaptive-pseudo', default=0, type=int, dest='phase2_adaptive_pseudo',
-                        help='adapt phase-2 pseudo supervision weight by current cross-modal matching quality')
-    parser.add_argument('--phase2-pseudo-quality-floor', default=0.5, type=float, dest='phase2_pseudo_quality_floor',
-                        help='minimum reliability scale used by adaptive phase-2 pseudo supervision')
     parser.add_argument('--resume', default= 0, type = int, help='resume or not')
     parser.add_argument('--debug', default='wsl',type=str,help='wsl or sl')
     parser.add_argument('--trial', default=1,type=int,help='trial for regdb')
@@ -216,12 +216,15 @@ if __name__ == "__main__":
     current_time = time.strftime("%Y年%m月%d日-%H:%M:%S")
 
     # 最终路径：logs/dataset/mode/时间
-    args.save_path = f'logs/{args.dataset}/{mode}/{current_time}'
+    # RegDB has 10 official trials, so keep each split in its own folder.
+    if args.dataset == 'regdb':
+        args.save_path = f'logs/{args.dataset}/{mode}/trial{args.trial}/{current_time}'
+    else:
+        args.save_path = f'logs/{args.dataset}/{mode}/{current_time}'
     if args.dataset =='sysu':
         args.num_classes = 395
     elif args.dataset =='regdb':
         args.num_classes = 206
-        # args.save_path += f'_{args.trial}'
     elif args.dataset == 'llcm':
         args.num_classes = 713
     set_seed(args.seed)
