@@ -1,0 +1,2069 @@
+Namespace(dataset='regdb', arch='resnet', mode='train', data_path='/root/data/', save_path='logs/regdb/t2v/trial_2/2026年05月31日-09:18:05', lr=0.00055, weight_decay=0.0005, milestones=[50, 70], relabel=1, weak_weight=0.25, tri_weight=0.25, img_h=288, img_w=144, seed=1, num_workers=32, batch_pidnum=8, pid_numsample=4, test_batch=128, sigma=0.8, temperature=3, num_cams=1, scrc_relation_temp=0.07, scrc_lambda_instance=0.5, scrc_lambda_cam=0.25, scrc_lambda_global=0.25, scrc_cm_weight=0.2, scrc_bi_weight=0.05, scrc_proto_weight=0.05, enable_rgmfd=1, rgmfd_reduction=16, rgmfd_gate_scale=0.5, rgmfd_start_epoch=0, rgmfd_rel_weight=0.1, rgmfd_orth_weight=0.05, rgmfd_gate_reg_weight=0.01, rgmfd_gate_target=0.5, disable_structured_indoor=1, cre_confidence=0, cre_sample_rate=1.0, cre_count_weight=0, cre_prob_weight=0, cre_margin_weight=0, cre_entropy_weight=0, cre_proto_weight=0, cre_min_margin_start=0.0, cre_min_margin_end=0.0, cre_margin_decay_epoch=0, enable_trrm=0, trrm_momentum=0.8, trrm_specific_start=20, trrm_specific_streak=2, trrm_specific_threshold=0.2, trrm_specific_max_ratio=1.0, trrm_specific_max_num=0, trrm_specific_ramp=0, trrm_specific_weight=0.3, trrm_remain_start=60, trrm_remain_weight=0.2, enable_remain_gate=0, remain_gate_keep_ratio=0.7, remain_gate_max_num=0, remain_gate_min_prob=0.0, remain_gate_min_margin=0.0, remain_gate_min_certainty=0.0, remain_gate_margin_weight=0.5, remain_gate_entropy_weight=0.3, enable_rdl=0, rdl_warmup=5, rdl_coverage_weight=0.5, rdl_stability_weight=0.5, rdl_common_boost=0.05, rdl_specific_min=0.7, rdl_remain_min=0.5, rdl_remain_ratio_weight=0.25, enable_p2r=0, p2r_hidden_dim=512, p2r_temp=0.07, p2r_iters=20, p2r_start_epoch=60, p2r_refine_start_epoch=70, p2r_anchor_weight=0.01, p2r_soft_weight=0.003, p2r_refine_weight=0.005, p2r_unc_weight=0.001, p2r_anchor_threshold=0.85, p2r_min_anchors=32, p2r_candidate_topk=5, p2r_anchor_bias=4.0, p2r_candidate_bias=1.0, p2r_mask_penalty=8.0, p2r_dustbin_logit=0.0, p2r_use_soft_specific=1, p2r_use_soft_remain=1, device=3, stage1_epoch=50, stage2_epoch=120, resume=0, debug='wsl', trial=2, search_mode='all', gall_mode='single', test_mode='t2v', model_path='default', num_classes=206)
+Time: 2026-05-31 09:18:14 | start phase1 from epoch 0
+CRE diag | r2i:3.12%(1/32) i2r:0.00%(0/34) common:0.00%(0/0) specific:2.33%(1/43) remain:0.00%(0/21) cov_c:0.00% cov_all:27.67% stable_c:0.00%
+Time: 2026-05-31 09:20:09 | phase 1 epoch 1; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-06
+rgmfd_orth_loss: 0.04743;  rgmfd_gate_loss: 5.4810093e-06;  
+r2r_id_loss: 5.196022;  i2i_id_loss: 5.1952;  
+r2r_tri_loss: 2.2714405;  i2i_tri_loss: 2.3439558;  
+
+R1:0.0291;   R10:0.1107;  R20:0.1684;  mAP:0.0389;  mINP:0.0244
+                       Best_R1: 0.0291;    Best mAP: 0.0389
+=================================================
+CRE diag | r2i:12.50%(1/8) i2r:0.00%(0/22) common:0.00%(0/0) specific:0.00%(0/22) remain:14.29%(1/7) cov_c:0.00% cov_all:14.08% stable_c:0.00%
+Time: 2026-05-31 09:21:59 | phase 1 epoch 2; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.9950000000000014e-05
+rgmfd_orth_loss: 0.038743407;  rgmfd_gate_loss: 2.4286837e-05;  
+r2r_id_loss: 2.5035121;  i2i_id_loss: 2.5365205;  
+r2r_tri_loss: 0.043917514;  i2i_tri_loss: 0.052816655;  
+
+R1:0.1282;   R10:0.2544;  R20:0.3345;  mAP:0.1338;  mINP:0.0887
+                       Best_R1: 0.1282;    Best mAP: 0.1338
+=================================================
+CRE diag | r2i:15.97%(19/119) i2r:17.89%(17/95) common:40.00%(8/20) specific:13.73%(7/51) remain:7.53%(7/93) cov_c:9.71% cov_all:74.76% stable_c:0.00%
+Time: 2026-05-31 09:23:46 | phase 1 epoch 3; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00011440000000000002
+rgmfd_orth_loss: 0.019050123;  rgmfd_gate_loss: 8.920718e-06;  
+r2r_id_loss: 0.29177958;  i2i_id_loss: 0.3261605;  
+r2r_tri_loss: 0.01009008;  i2i_tri_loss: 0.011518783;  
+
+R1:0.1427;   R10:0.3000;  R20:0.4073;  mAP:0.1531;  mINP:0.1001
+                       Best_R1: 0.1427;    Best mAP: 0.1531
+=================================================
+CRE diag | r2i:25.00%(36/144) i2r:31.36%(37/118) common:51.16%(22/43) specific:13.33%(4/30) remain:18.81%(19/101) cov_c:20.87% cov_all:83.50% stable_c:37.21%
+Time: 2026-05-31 09:25:38 | phase 1 epoch 4; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00016885
+rgmfd_orth_loss: 0.013394978;  rgmfd_gate_loss: 6.423603e-08;  
+r2r_id_loss: 0.060308818;  i2i_id_loss: 0.07324271;  
+r2r_tri_loss: 0.006063164;  i2i_tri_loss: 0.006851445;  
+
+R1:0.1762;   R10:0.3495;  R20:0.4476;  mAP:0.1861;  mINP:0.1172
+                       Best_R1: 0.1762;    Best mAP: 0.1861
+=================================================
+CRE diag | r2i:32.26%(50/155) i2r:29.51%(36/122) common:56.25%(27/48) specific:13.64%(3/22) remain:16.36%(18/110) cov_c:23.30% cov_all:86.89% stable_c:52.08%
+Time: 2026-05-31 09:27:32 | phase 1 epoch 5; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00022330000000000003
+rgmfd_orth_loss: 0.011559043;  rgmfd_gate_loss: 2.7788914e-07;  
+r2r_id_loss: 0.030617477;  i2i_id_loss: 0.040493716;  
+r2r_tri_loss: 0.0046939086;  i2i_tri_loss: 0.005099022;  
+
+R1:0.1733;   R10:0.3413;  R20:0.4272;  mAP:0.1744;  mINP:0.1089
+                       Best_R1: 0.1762;    Best mAP: 0.1861
+=================================================
+CRE diag | r2i:29.49%(46/156) i2r:35.38%(46/130) common:54.72%(29/53) specific:17.24%(5/29) remain:17.92%(19/106) cov_c:25.73% cov_all:90.29% stable_c:60.38%
+Time: 2026-05-31 09:29:24 | phase 1 epoch 6; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00027775
+rgmfd_orth_loss: 0.010626049;  rgmfd_gate_loss: 8.5363536e-07;  
+r2r_id_loss: 0.050456792;  i2i_id_loss: 0.08413652;  
+r2r_tri_loss: 0.005630409;  i2i_tri_loss: 0.0070100306;  
+
+R1:0.1015;   R10:0.2777;  R20:0.3806;  mAP:0.1292;  mINP:0.0841
+                       Best_R1: 0.1762;    Best mAP: 0.1861
+=================================================
+CRE diag | r2i:32.48%(38/117) i2r:32.94%(28/85) common:71.43%(15/21) specific:22.58%(14/62) remain:21.52%(17/79) cov_c:10.19% cov_all:73.30% stable_c:57.14%
+Time: 2026-05-31 09:31:16 | phase 1 epoch 7; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.0003322
+rgmfd_orth_loss: 0.010963118;  rgmfd_gate_loss: 3.3567069e-06;  
+r2r_id_loss: 0.11540902;  i2i_id_loss: 0.123608924;  
+r2r_tri_loss: 0.008080597;  i2i_tri_loss: 0.009343115;  
+
+R1:0.1869;   R10:0.3704;  R20:0.4641;  mAP:0.1872;  mINP:0.1147
+                       Best_R1: 0.1869;    Best mAP: 0.1872
+=================================================
+CRE diag | r2i:38.76%(50/129) i2r:38.58%(49/127) common:80.00%(24/30) specific:20.83%(5/24) remain:28.12%(36/128) cov_c:14.56% cov_all:86.41% stable_c:36.67%
+Time: 2026-05-31 09:33:11 | phase 1 epoch 8; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00038665
+rgmfd_orth_loss: 0.008718832;  rgmfd_gate_loss: 2.6121656e-06;  
+r2r_id_loss: 0.01283449;  i2i_id_loss: 0.016389297;  
+r2r_tri_loss: 0.0038376688;  i2i_tri_loss: 0.0040460043;  
+
+R1:0.2340;   R10:0.4049;  R20:0.5019;  mAP:0.2263;  mINP:0.1453
+                       Best_R1: 0.2340;    Best mAP: 0.2263
+=================================================
+CRE diag | r2i:44.59%(70/157) i2r:52.67%(69/131) common:79.25%(42/53) specific:32.00%(8/25) remain:33.93%(38/112) cov_c:25.73% cov_all:90.29% stable_c:35.85%
+Time: 2026-05-31 09:35:06 | phase 1 epoch 9; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00044110000000000004
+rgmfd_orth_loss: 0.0068316585;  rgmfd_gate_loss: 4.979781e-06;  
+r2r_id_loss: 0.031189535;  i2i_id_loss: 0.07032072;  
+r2r_tri_loss: 0.0040817126;  i2i_tri_loss: 0.005096509;  
+
+R1:0.1136;   R10:0.2549;  R20:0.3296;  mAP:0.1219;  mINP:0.0720
+                       Best_R1: 0.2340;    Best mAP: 0.2263
+=================================================
+CRE diag | r2i:32.53%(27/83) i2r:42.22%(38/90) common:91.67%(11/12) specific:29.82%(17/57) remain:29.33%(22/75) cov_c:5.83% cov_all:64.56% stable_c:83.33%
+Time: 2026-05-31 09:37:03 | phase 1 epoch 10; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.0004955500000000001
+rgmfd_orth_loss: 0.008167463;  rgmfd_gate_loss: 9.8164266e-05;  
+r2r_id_loss: 0.20924523;  i2i_id_loss: 0.18524714;  
+r2r_tri_loss: 0.014055293;  i2i_tri_loss: 0.0155005595;  
+
+R1:0.2879;   R10:0.4762;  R20:0.5709;  mAP:0.2682;  mINP:0.1713
+                       Best_R1: 0.2879;    Best mAP: 0.2682
+=================================================
+CRE diag | r2i:52.07%(63/121) i2r:47.00%(47/100) common:93.10%(27/29) specific:41.67%(20/48) remain:27.96%(26/93) cov_c:14.08% cov_all:80.58% stable_c:27.59%
+Time: 2026-05-31 09:38:59 | phase 1 epoch 11; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.005565574;  rgmfd_gate_loss: 0.00016380115;  
+r2r_id_loss: 0.02028539;  i2i_id_loss: 0.043320466;  
+r2r_tri_loss: 0.0067511518;  i2i_tri_loss: 0.0071386225;  
+
+R1:0.3248;   R10:0.5199;  R20:0.6136;  mAP:0.3061;  mINP:0.2077
+                       Best_R1: 0.3248;    Best mAP: 0.3061
+=================================================
+CRE diag | r2i:58.23%(92/158) i2r:68.66%(92/134) common:91.78%(67/73) specific:31.03%(9/29) remain:42.31%(33/78) cov_c:35.44% cov_all:85.44% stable_c:31.51%
+Time: 2026-05-31 09:40:55 | phase 1 epoch 12; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.003988737;  rgmfd_gate_loss: 0.00015425941;  
+r2r_id_loss: 0.004651996;  i2i_id_loss: 0.005180423;  
+r2r_tri_loss: 0.002996304;  i2i_tri_loss: 0.0030310883;  
+
+R1:0.3262;   R10:0.5306;  R20:0.6218;  mAP:0.3112;  mINP:0.2088
+                       Best_R1: 0.3262;    Best mAP: 0.3112
+=================================================
+CRE diag | r2i:64.56%(102/158) i2r:68.66%(92/134) common:89.47%(68/76) specific:53.12%(17/32) remain:41.33%(31/75) cov_c:36.89% cov_all:87.38% stable_c:82.89%
+Time: 2026-05-31 09:42:47 | phase 1 epoch 13; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0031401156;  rgmfd_gate_loss: 0.00016270849;  
+r2r_id_loss: 0.007997755;  i2i_id_loss: 0.01246752;  
+r2r_tri_loss: 0.0028047757;  i2i_tri_loss: 0.0029144804;  
+
+R1:0.2320;   R10:0.4019;  R20:0.4961;  mAP:0.2242;  mINP:0.1433
+                       Best_R1: 0.3262;    Best mAP: 0.3112
+=================================================
+CRE diag | r2i:54.89%(73/133) i2r:63.33%(76/120) common:95.83%(46/48) specific:47.37%(18/38) remain:33.33%(31/93) cov_c:23.30% cov_all:83.98% stable_c:79.17%
+Time: 2026-05-31 09:44:37 | phase 1 epoch 14; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.004691031;  rgmfd_gate_loss: 0.00024818024;  
+r2r_id_loss: 0.13627003;  i2i_id_loss: 0.16782303;  
+r2r_tri_loss: 0.015973385;  i2i_tri_loss: 0.018522821;  
+
+R1:0.2898;   R10:0.4762;  R20:0.5631;  mAP:0.2626;  mINP:0.1563
+                       Best_R1: 0.3262;    Best mAP: 0.3112
+=================================================
+CRE diag | r2i:54.97%(83/151) i2r:59.69%(77/129) common:89.83%(53/59) specific:40.00%(12/30) remain:37.23%(35/94) cov_c:28.64% cov_all:88.83% stable_c:45.76%
+Time: 2026-05-31 09:46:27 | phase 1 epoch 15; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.00341862;  rgmfd_gate_loss: 0.0002609325;  
+r2r_id_loss: 0.009408609;  i2i_id_loss: 0.011070351;  
+r2r_tri_loss: 0.0056222854;  i2i_tri_loss: 0.0061134067;  
+
+R1:0.3583;   R10:0.5340;  R20:0.6204;  mAP:0.3195;  mINP:0.2071
+                       Best_R1: 0.3583;    Best mAP: 0.3195
+=================================================
+CRE diag | r2i:64.20%(104/162) i2r:71.01%(98/138) common:96.05%(73/76) specific:53.33%(16/30) remain:36.59%(30/82) cov_c:36.89% cov_all:89.81% stable_c:59.21%
+Time: 2026-05-31 09:48:16 | phase 1 epoch 16; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0025481968;  rgmfd_gate_loss: 0.00024556508;  
+r2r_id_loss: 0.0066158916;  i2i_id_loss: 0.006309784;  
+r2r_tri_loss: 0.0034852477;  i2i_tri_loss: 0.003275279;  
+
+R1:0.3471;   R10:0.5291;  R20:0.6374;  mAP:0.3170;  mINP:0.2053
+                       Best_R1: 0.3583;    Best mAP: 0.3195
+=================================================
+CRE diag | r2i:67.07%(110/164) i2r:69.06%(96/139) common:90.59%(77/85) specific:50.00%(15/30) remain:40.54%(30/74) cov_c:41.26% cov_all:91.75% stable_c:77.65%
+Time: 2026-05-31 09:50:08 | phase 1 epoch 17; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0027938245;  rgmfd_gate_loss: 0.00027249515;  
+r2r_id_loss: 0.03621509;  i2i_id_loss: 0.053426348;  
+r2r_tri_loss: 0.007836177;  i2i_tri_loss: 0.008230499;  
+
+R1:0.2252;   R10:0.3791;  R20:0.4631;  mAP:0.2156;  mINP:0.1361
+                       Best_R1: 0.3583;    Best mAP: 0.3195
+=================================================
+CRE diag | r2i:46.88%(60/128) i2r:50.70%(36/71) common:91.30%(21/23) specific:42.11%(32/76) remain:27.42%(17/62) cov_c:11.17% cov_all:75.73% stable_c:86.96%
+Time: 2026-05-31 09:52:01 | phase 1 epoch 18; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0027806163;  rgmfd_gate_loss: 0.00029580435;  
+r2r_id_loss: 0.033169348;  i2i_id_loss: 0.041214358;  
+r2r_tri_loss: 0.008927796;  i2i_tri_loss: 0.010422795;  
+
+R1:0.3403;   R10:0.5408;  R20:0.6403;  mAP:0.3242;  mINP:0.2183
+                       Best_R1: 0.3583;    Best mAP: 0.3242
+=================================================
+CRE diag | r2i:62.42%(103/165) i2r:66.90%(95/142) common:89.87%(71/79) specific:60.00%(12/20) remain:40.70%(35/86) cov_c:38.35% cov_all:89.32% stable_c:25.32%
+Time: 2026-05-31 09:53:56 | phase 1 epoch 19; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0022160953;  rgmfd_gate_loss: 0.00025526655;  
+r2r_id_loss: 0.031217251;  i2i_id_loss: 0.017024565;  
+r2r_tri_loss: 0.0052249734;  i2i_tri_loss: 0.005561716;  
+
+R1:0.2049;   R10:0.4034;  R20:0.4874;  mAP:0.1981;  mINP:0.1164
+                       Best_R1: 0.3583;    Best mAP: 0.3242
+=================================================
+CRE diag | r2i:48.21%(54/112) i2r:45.74%(43/94) common:89.29%(25/28) specific:34.48%(20/58) remain:26.67%(20/75) cov_c:13.59% cov_all:76.21% stable_c:78.57%
+Time: 2026-05-31 09:55:54 | phase 1 epoch 20; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0024497162;  rgmfd_gate_loss: 0.00029618843;  
+r2r_id_loss: 0.059891447;  i2i_id_loss: 0.07233153;  
+r2r_tri_loss: 0.013922635;  i2i_tri_loss: 0.014591585;  
+
+R1:0.3058;   R10:0.5083;  R20:0.5956;  mAP:0.2819;  mINP:0.1693
+                       Best_R1: 0.3583;    Best mAP: 0.3242
+=================================================
+CRE diag | r2i:60.13%(95/158) i2r:58.77%(67/114) common:96.15%(50/52) specific:43.90%(18/41) remain:35.23%(31/88) cov_c:25.24% cov_all:87.38% stable_c:28.85%
+Time: 2026-05-31 09:57:50 | phase 1 epoch 21; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0021443733;  rgmfd_gate_loss: 0.0002515423;  
+r2r_id_loss: 0.02801708;  i2i_id_loss: 0.037181165;  
+r2r_tri_loss: 0.010230365;  i2i_tri_loss: 0.010902362;  
+
+R1:0.3505;   R10:0.5345;  R20:0.6092;  mAP:0.3162;  mINP:0.2036
+                       Best_R1: 0.3583;    Best mAP: 0.3242
+=================================================
+CRE diag | r2i:62.94%(107/170) i2r:61.81%(89/144) common:91.89%(68/74) specific:66.67%(14/21) remain:31.25%(30/96) cov_c:35.92% cov_all:92.23% stable_c:54.05%
+Time: 2026-05-31 09:59:42 | phase 1 epoch 22; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0019043148;  rgmfd_gate_loss: 0.00020403737;  
+r2r_id_loss: 0.011590302;  i2i_id_loss: 0.012179075;  
+r2r_tri_loss: 0.0058367476;  i2i_tri_loss: 0.00552149;  
+
+R1:0.3398;   R10:0.5432;  R20:0.6515;  mAP:0.3142;  mINP:0.2063
+                       Best_R1: 0.3583;    Best mAP: 0.3242
+=================================================
+CRE diag | r2i:66.46%(109/164) i2r:67.81%(99/146) common:90.48%(76/84) specific:47.83%(11/23) remain:39.53%(34/86) cov_c:40.78% cov_all:92.23% stable_c:69.05%
+Time: 2026-05-31 10:01:34 | phase 1 epoch 23; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0018816489;  rgmfd_gate_loss: 0.0001721315;  
+r2r_id_loss: 0.025365375;  i2i_id_loss: 0.021703234;  
+r2r_tri_loss: 0.0051945564;  i2i_tri_loss: 0.005300743;  
+
+R1:0.2461;   R10:0.4252;  R20:0.5073;  mAP:0.2161;  mINP:0.1174
+                       Best_R1: 0.3583;    Best mAP: 0.3242
+=================================================
+CRE diag | r2i:50.82%(62/122) i2r:58.75%(47/80) common:92.59%(25/27) specific:53.97%(34/63) remain:34.43%(21/61) cov_c:13.11% cov_all:70.87% stable_c:74.07%
+Time: 2026-05-31 10:03:28 | phase 1 epoch 24; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0019191939;  rgmfd_gate_loss: 0.00018315787;  
+r2r_id_loss: 0.061314404;  i2i_id_loss: 0.054554906;  
+r2r_tri_loss: 0.013108531;  i2i_tri_loss: 0.012941656;  
+
+R1:0.3888;   R10:0.6039;  R20:0.6806;  mAP:0.3530;  mINP:0.2340
+                       Best_R1: 0.3888;    Best mAP: 0.3530
+=================================================
+CRE diag | r2i:70.48%(117/166) i2r:69.23%(99/143) common:94.94%(75/79) specific:59.09%(13/22) remain:41.11%(37/90) cov_c:38.35% cov_all:92.23% stable_c:25.32%
+Time: 2026-05-31 10:05:21 | phase 1 epoch 25; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0017167926;  rgmfd_gate_loss: 9.09558e-05;  
+r2r_id_loss: 0.009870638;  i2i_id_loss: 0.010337894;  
+r2r_tri_loss: 0.004832626;  i2i_tri_loss: 0.004782141;  
+
+R1:0.3927;   R10:0.5830;  R20:0.6675;  mAP:0.3525;  mINP:0.2309
+                       Best_R1: 0.3927;    Best mAP: 0.3530
+=================================================
+CRE diag | r2i:69.54%(121/174) i2r:67.86%(95/140) common:94.81%(73/77) specific:68.97%(20/29) remain:33.33%(28/84) cov_c:37.38% cov_all:91.75% stable_c:79.22%
+Time: 2026-05-31 10:07:15 | phase 1 epoch 26; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0018117186;  rgmfd_gate_loss: 7.289293e-05;  
+r2r_id_loss: 0.025236934;  i2i_id_loss: 0.044862512;  
+r2r_tri_loss: 0.008758037;  i2i_tri_loss: 0.009463632;  
+
+R1:0.2990;   R10:0.5136;  R20:0.6170;  mAP:0.2774;  mINP:0.1766
+                       Best_R1: 0.3927;    Best mAP: 0.3530
+=================================================
+CRE diag | r2i:69.14%(112/162) i2r:64.96%(89/137) common:93.42%(71/76) specific:52.00%(13/25) remain:39.76%(33/83) cov_c:36.89% cov_all:88.83% stable_c:73.68%
+Time: 2026-05-31 10:09:08 | phase 1 epoch 27; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0016338992;  rgmfd_gate_loss: 4.3969703e-05;  
+r2r_id_loss: 0.012674849;  i2i_id_loss: 0.013975467;  
+r2r_tri_loss: 0.0051042465;  i2i_tri_loss: 0.005434;  
+
+R1:0.3408;   R10:0.5272;  R20:0.6087;  mAP:0.3197;  mINP:0.2164
+                       Best_R1: 0.3927;    Best mAP: 0.3530
+=================================================
+CRE diag | r2i:67.07%(110/164) i2r:64.84%(83/128) common:91.30%(63/69) specific:67.74%(21/31) remain:35.29%(30/85) cov_c:33.50% cov_all:89.81% stable_c:78.26%
+Time: 2026-05-31 10:11:01 | phase 1 epoch 28; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0016716395;  rgmfd_gate_loss: 2.9922874e-05;  
+r2r_id_loss: 0.014406303;  i2i_id_loss: 0.017842727;  
+r2r_tri_loss: 0.004175955;  i2i_tri_loss: 0.0048951595;  
+
+R1:0.3019;   R10:0.4869;  R20:0.5840;  mAP:0.2764;  mINP:0.1702
+                       Best_R1: 0.3927;    Best mAP: 0.3530
+=================================================
+CRE diag | r2i:66.46%(107/161) i2r:72.36%(89/123) common:97.10%(67/69) specific:52.78%(19/36) remain:39.74%(31/78) cov_c:33.50% cov_all:87.86% stable_c:68.12%
+Time: 2026-05-31 10:12:56 | phase 1 epoch 29; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0017005433;  rgmfd_gate_loss: 2.8129602e-05;  
+r2r_id_loss: 0.09356917;  i2i_id_loss: 0.115481414;  
+r2r_tri_loss: 0.015543937;  i2i_tri_loss: 0.017206706;  
+
+R1:0.4112;   R10:0.6267;  R20:0.6956;  mAP:0.3672;  mINP:0.2371
+                       Best_R1: 0.4112;    Best mAP: 0.3672
+=================================================
+CRE diag | r2i:67.86%(114/168) i2r:72.34%(102/141) common:96.15%(75/78) specific:48.15%(13/27) remain:45.05%(41/91) cov_c:37.86% cov_all:94.17% stable_c:56.41%
+Time: 2026-05-31 10:14:49 | phase 1 epoch 30; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0014738844;  rgmfd_gate_loss: 1.2776545e-05;  
+r2r_id_loss: 0.0072239563;  i2i_id_loss: 0.009888645;  
+r2r_tri_loss: 0.0059417523;  i2i_tri_loss: 0.005781991;  
+
+R1:0.4204;   R10:0.6359;  R20:0.7117;  mAP:0.3769;  mINP:0.2513
+                       Best_R1: 0.4204;    Best mAP: 0.3769
+=================================================
+CRE diag | r2i:73.56%(128/174) i2r:72.48%(108/149) common:94.74%(90/95) specific:66.67%(12/18) remain:39.74%(31/78) cov_c:46.12% cov_all:92.72% stable_c:65.26%
+Time: 2026-05-31 10:16:44 | phase 1 epoch 31; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0015553781;  rgmfd_gate_loss: 7.201768e-06;  
+r2r_id_loss: 0.012890133;  i2i_id_loss: 0.023084447;  
+r2r_tri_loss: 0.005643696;  i2i_tri_loss: 0.006022686;  
+
+R1:0.4053;   R10:0.6335;  R20:0.7102;  mAP:0.3697;  mINP:0.2430
+                       Best_R1: 0.4204;    Best mAP: 0.3769
+=================================================
+CRE diag | r2i:78.74%(137/174) i2r:77.71%(122/157) common:95.41%(104/109) specific:84.62%(11/13) remain:41.67%(30/72) cov_c:52.91% cov_all:93.69% stable_c:76.15%
+Time: 2026-05-31 10:18:41 | phase 1 epoch 32; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0015048475;  rgmfd_gate_loss: 7.404222e-06;  
+r2r_id_loss: 0.010177535;  i2i_id_loss: 0.010966874;  
+r2r_tri_loss: 0.0037297835;  i2i_tri_loss: 0.003875702;  
+
+R1:0.4248;   R10:0.6150;  R20:0.7005;  mAP:0.3840;  mINP:0.2611
+                       Best_R1: 0.4248;    Best mAP: 0.3840
+=================================================
+CRE diag | r2i:72.73%(128/176) i2r:82.28%(130/158) common:93.75%(105/112) specific:56.52%(13/23) remain:50.00%(29/58) cov_c:54.37% cov_all:93.69% stable_c:82.14%
+Time: 2026-05-31 10:20:36 | phase 1 epoch 33; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0016278872;  rgmfd_gate_loss: 7.5963303e-06;  
+r2r_id_loss: 0.05358968;  i2i_id_loss: 0.047687124;  
+r2r_tri_loss: 0.007309618;  i2i_tri_loss: 0.007892525;  
+
+R1:0.3471;   R10:0.5597;  R20:0.6544;  mAP:0.3018;  mINP:0.1797
+                       Best_R1: 0.4248;    Best mAP: 0.3840
+=================================================
+CRE diag | r2i:66.90%(97/145) i2r:59.60%(59/99) common:97.37%(37/38) specific:63.83%(30/47) remain:40.24%(33/82) cov_c:18.45% cov_all:81.07% stable_c:86.84%
+Time: 2026-05-31 10:22:30 | phase 1 epoch 34; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0014073176;  rgmfd_gate_loss: 6.233e-06;  
+r2r_id_loss: 0.030087044;  i2i_id_loss: 0.030479372;  
+r2r_tri_loss: 0.008128085;  i2i_tri_loss: 0.0083879065;  
+
+R1:0.3859;   R10:0.5714;  R20:0.6573;  mAP:0.3429;  mINP:0.2304
+                       Best_R1: 0.4248;    Best mAP: 0.3840
+=================================================
+CRE diag | r2i:70.93%(122/172) i2r:75.36%(104/138) common:97.53%(79/81) specific:58.82%(20/34) remain:44.16%(34/77) cov_c:39.32% cov_all:92.72% stable_c:37.04%
+Time: 2026-05-31 10:24:22 | phase 1 epoch 35; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0013673814;  rgmfd_gate_loss: 1.9856134e-06;  
+r2r_id_loss: 0.0088213375;  i2i_id_loss: 0.010304051;  
+r2r_tri_loss: 0.0039623342;  i2i_tri_loss: 0.004038523;  
+
+R1:0.4068;   R10:0.6117;  R20:0.6874;  mAP:0.3775;  mINP:0.2584
+                       Best_R1: 0.4248;    Best mAP: 0.3840
+=================================================
+CRE diag | r2i:74.01%(131/177) i2r:77.78%(112/144) common:97.85%(91/93) specific:57.14%(16/28) remain:41.10%(30/73) cov_c:45.15% cov_all:94.17% stable_c:76.34%
+Time: 2026-05-31 10:26:12 | phase 1 epoch 36; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0014045947;  rgmfd_gate_loss: 3.1744237e-06;  
+r2r_id_loss: 0.011003751;  i2i_id_loss: 0.012863684;  
+r2r_tri_loss: 0.0033616428;  i2i_tri_loss: 0.0034590831;  
+
+R1:0.4199;   R10:0.6228;  R20:0.7058;  mAP:0.3852;  mINP:0.2604
+                       Best_R1: 0.4248;    Best mAP: 0.3852
+=================================================
+CRE diag | r2i:76.02%(130/171) i2r:75.84%(113/149) common:94.95%(94/99) specific:65.00%(13/20) remain:42.86%(30/70) cov_c:48.06% cov_all:91.75% stable_c:76.77%
+Time: 2026-05-31 10:28:05 | phase 1 epoch 37; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.001492724;  rgmfd_gate_loss: 5.565819e-06;  
+r2r_id_loss: 0.03713625;  i2i_id_loss: 0.052929576;  
+r2r_tri_loss: 0.007976008;  i2i_tri_loss: 0.008736474;  
+
+R1:0.4165;   R10:0.6374;  R20:0.7233;  mAP:0.3585;  mINP:0.2177
+                       Best_R1: 0.4248;    Best mAP: 0.3852
+=================================================
+CRE diag | r2i:64.97%(102/157) i2r:74.80%(95/127) common:97.06%(66/68) specific:59.09%(26/44) remain:39.47%(30/76) cov_c:33.01% cov_all:90.78% stable_c:88.24%
+Time: 2026-05-31 10:29:55 | phase 1 epoch 38; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0012984944;  rgmfd_gate_loss: 3.0763592e-06;  
+r2r_id_loss: 0.014430482;  i2i_id_loss: 0.03075503;  
+r2r_tri_loss: 0.0064596483;  i2i_tri_loss: 0.0077290228;  
+
+R1:0.3665;   R10:0.5786;  R20:0.6757;  mAP:0.3257;  mINP:0.2089
+                       Best_R1: 0.4248;    Best mAP: 0.3852
+=================================================
+CRE diag | r2i:74.52%(117/157) i2r:69.17%(83/120) common:100.00%(64/64) specific:70.45%(31/44) remain:36.00%(27/75) cov_c:31.07% cov_all:87.38% stable_c:68.75%
+Time: 2026-05-31 10:31:47 | phase 1 epoch 39; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0012797627;  rgmfd_gate_loss: 1.9640067e-06;  
+r2r_id_loss: 0.019378195;  i2i_id_loss: 0.016155187;  
+r2r_tri_loss: 0.005242146;  i2i_tri_loss: 0.00543901;  
+
+R1:0.3383;   R10:0.5529;  R20:0.6675;  mAP:0.3055;  mINP:0.1927
+                       Best_R1: 0.4248;    Best mAP: 0.3852
+=================================================
+CRE diag | r2i:72.56%(119/164) i2r:61.76%(84/136) common:91.55%(65/71) specific:61.76%(21/34) remain:39.53%(34/86) cov_c:34.47% cov_all:90.78% stable_c:54.93%
+Time: 2026-05-31 10:33:39 | phase 1 epoch 40; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0013169184;  rgmfd_gate_loss: 2.001887e-06;  
+r2r_id_loss: 0.0135349715;  i2i_id_loss: 0.012545297;  
+r2r_tri_loss: 0.0041328142;  i2i_tri_loss: 0.003797794;  
+
+R1:0.4325;   R10:0.6456;  R20:0.7282;  mAP:0.4020;  mINP:0.2839
+                       Best_R1: 0.4325;    Best mAP: 0.4020
+=================================================
+CRE diag | r2i:78.41%(138/176) i2r:79.19%(118/149) common:94.55%(104/110) specific:42.86%(12/28) remain:45.10%(23/51) cov_c:53.40% cov_all:91.75% stable_c:50.00%
+Time: 2026-05-31 10:35:33 | phase 1 epoch 41; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0013359853;  rgmfd_gate_loss: 4.7887143e-06;  
+r2r_id_loss: 0.01320982;  i2i_id_loss: 0.01447257;  
+r2r_tri_loss: 0.0037315355;  i2i_tri_loss: 0.0035426181;  
+
+R1:0.4053;   R10:0.6165;  R20:0.7073;  mAP:0.3730;  mINP:0.2532
+                       Best_R1: 0.4325;    Best mAP: 0.4020
+=================================================
+CRE diag | r2i:77.11%(128/166) i2r:76.82%(116/151) common:96.00%(96/100) specific:66.67%(12/18) remain:43.48%(30/69) cov_c:48.54% cov_all:90.29% stable_c:83.00%
+Time: 2026-05-31 10:37:30 | phase 1 epoch 42; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.001418692;  rgmfd_gate_loss: 7.337523e-06;  
+r2r_id_loss: 0.0555084;  i2i_id_loss: 0.05020718;  
+r2r_tri_loss: 0.009574264;  i2i_tri_loss: 0.009577698;  
+
+R1:0.4131;   R10:0.6165;  R20:0.7015;  mAP:0.3662;  mINP:0.2410
+                       Best_R1: 0.4325;    Best mAP: 0.4020
+=================================================
+CRE diag | r2i:67.03%(122/182) i2r:69.23%(99/143) common:96.30%(78/81) specific:61.29%(19/31) remain:39.29%(33/84) cov_c:39.32% cov_all:95.15% stable_c:79.01%
+Time: 2026-05-31 10:39:24 | phase 1 epoch 43; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0012477237;  rgmfd_gate_loss: 2.4401918e-06;  
+r2r_id_loss: 0.008013825;  i2i_id_loss: 0.009989416;  
+r2r_tri_loss: 0.0044348366;  i2i_tri_loss: 0.0043829447;  
+
+R1:0.4471;   R10:0.6626;  R20:0.7422;  mAP:0.4105;  mINP:0.2833
+                       Best_R1: 0.4471;    Best mAP: 0.4105
+=================================================
+CRE diag | r2i:77.22%(139/180) i2r:75.00%(114/152) common:94.17%(97/103) specific:66.67%(18/27) remain:39.06%(25/64) cov_c:50.00% cov_all:93.69% stable_c:66.02%
+Time: 2026-05-31 10:41:14 | phase 1 epoch 44; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0012848048;  rgmfd_gate_loss: 3.4109667e-06;  
+r2r_id_loss: 0.011878674;  i2i_id_loss: 0.011705649;  
+r2r_tri_loss: 0.0034808938;  i2i_tri_loss: 0.0035331675;  
+
+R1:0.4184;   R10:0.6136;  R20:0.6981;  mAP:0.3876;  mINP:0.2652
+                       Best_R1: 0.4471;    Best mAP: 0.4105
+=================================================
+CRE diag | r2i:77.46%(134/173) i2r:75.86%(110/145) common:95.92%(94/98) specific:65.52%(19/29) remain:36.92%(24/65) cov_c:47.57% cov_all:92.23% stable_c:83.67%
+Time: 2026-05-31 10:43:03 | phase 1 epoch 45; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0013613984;  rgmfd_gate_loss: 6.3579473e-06;  
+r2r_id_loss: 0.025344694;  i2i_id_loss: 0.039639883;  
+r2r_tri_loss: 0.0061236285;  i2i_tri_loss: 0.0066501214;  
+
+R1:0.3102;   R10:0.4806;  R20:0.5650;  mAP:0.2704;  mINP:0.1601
+                       Best_R1: 0.4471;    Best mAP: 0.4105
+=================================================
+CRE diag | r2i:67.50%(108/160) i2r:75.59%(96/127) common:95.59%(65/68) specific:69.44%(25/36) remain:51.19%(43/84) cov_c:33.01% cov_all:90.78% stable_c:76.47%
+Time: 2026-05-31 10:44:54 | phase 1 epoch 46; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0012196585;  rgmfd_gate_loss: 3.6307108e-06;  
+r2r_id_loss: 0.012737439;  i2i_id_loss: 0.0135185495;  
+r2r_tri_loss: 0.0049073175;  i2i_tri_loss: 0.005401247;  
+
+R1:0.4306;   R10:0.6277;  R20:0.7024;  mAP:0.3855;  mINP:0.2602
+                       Best_R1: 0.4471;    Best mAP: 0.4105
+=================================================
+CRE diag | r2i:75.98%(136/179) i2r:80.79%(122/151) common:98.11%(104/106) specific:54.17%(13/24) remain:36.51%(23/63) cov_c:51.46% cov_all:93.20% stable_c:56.60%
+Time: 2026-05-31 10:46:46 | phase 1 epoch 47; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0012392526;  rgmfd_gate_loss: 4.7287963e-06;  
+r2r_id_loss: 0.012687833;  i2i_id_loss: 0.012340281;  
+r2r_tri_loss: 0.0037079258;  i2i_tri_loss: 0.003703496;  
+
+R1:0.4675;   R10:0.6461;  R20:0.7223;  mAP:0.4097;  mINP:0.2784
+                       Best_R1: 0.4675;    Best mAP: 0.4105
+=================================================
+CRE diag | r2i:79.77%(138/173) i2r:82.17%(129/157) common:93.97%(109/116) specific:64.71%(11/17) remain:50.00%(29/58) cov_c:56.31% cov_all:92.23% stable_c:77.59%
+Time: 2026-05-31 10:48:39 | phase 1 epoch 48; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.001260962;  rgmfd_gate_loss: 8.213126e-06;  
+r2r_id_loss: 0.02429858;  i2i_id_loss: 0.018368633;  
+r2r_tri_loss: 0.0046991045;  i2i_tri_loss: 0.004013537;  
+
+R1:0.2549;   R10:0.4466;  R20:0.5379;  mAP:0.2317;  mINP:0.1403
+                       Best_R1: 0.4675;    Best mAP: 0.4105
+=================================================
+CRE diag | r2i:70.00%(105/150) i2r:67.52%(79/117) common:98.39%(61/62) specific:58.70%(27/46) remain:35.71%(25/70) cov_c:30.10% cov_all:85.92% stable_c:85.48%
+Time: 2026-05-31 10:50:33 | phase 1 epoch 49; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0012866693;  rgmfd_gate_loss: 3.5075182e-06;  
+r2r_id_loss: 0.040382322;  i2i_id_loss: 0.04640284;  
+r2r_tri_loss: 0.008880717;  i2i_tri_loss: 0.0097229;  
+
+R1:0.4427;   R10:0.6592;  R20:0.7383;  mAP:0.3928;  mINP:0.2544
+                       Best_R1: 0.4675;    Best mAP: 0.4105
+=================================================
+CRE diag | r2i:71.43%(125/175) i2r:81.01%(128/158) common:96.15%(100/104) specific:64.71%(11/17) remain:48.00%(36/75) cov_c:50.49% cov_all:95.15% stable_c:48.08%
+Time: 2026-05-31 10:52:28 | phase 1 epoch 50; Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+rgmfd_orth_loss: 0.0011897633;  rgmfd_gate_loss: 2.4267758e-06;  
+r2r_id_loss: 0.008554666;  i2i_id_loss: 0.009428562;  
+r2r_tri_loss: 0.003723772;  i2i_tri_loss: 0.003980493;  
+
+R1:0.4563;   R10:0.6451;  R20:0.7296;  mAP:0.4082;  mINP:0.2835
+                       Best_R1: 0.4675;    Best mAP: 0.4105
+=================================================
+Time: 2026-05-31 10:52:28 | start phase2 from epoch 0
+CRE diag | r2i:81.82%(144/176) i2r:77.92%(120/154) common:97.20%(104/107) specific:70.00%(14/20) remain:42.42%(28/66) cov_c:51.94% cov_all:93.20% stable_c:78.50%
+=================================================
+Epoch: 0;Time: 2026-05-31 10:54:38;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-06
+r2r_id_loss: 0.010729355;  i2i_id_loss: 0.012050421;  
+rgmfd_orth_loss: 0.0011992248;  rgmfd_gate_loss: 3.0589424e-06;  
+tri_loss_rgb: 0.0048015136;  tri_loss_ir: 0.0047044647;  
+r2i_cmo_loss: 1.4843576;  i2r_cmo_loss: 1.5404139;  
+rgmfd_rel_loss: 0.06467611;  rgb_cross_loss: 5.1952167;  
+ir_cross_loss: 5.2067966;  
+R1:0.5097;   R10:0.7029;  R20:0.7752;  mAP:0.4640;  mINP:0.3344
+                   Best_R1: 0.5097;    Best mAP: 0.4640
+=================================================
+CRE diag | r2i:84.92%(152/179) i2r:83.87%(130/155) common:97.48%(116/119) specific:57.14%(16/28) remain:47.92%(23/48) cov_c:57.77% cov_all:94.17% stable_c:89.08%
+=================================================
+Epoch: 1;Time: 2026-05-31 10:56:48;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.9950000000000014e-05
+r2r_id_loss: 0.06505653;  i2i_id_loss: 0.05859486;  
+rgmfd_orth_loss: 0.0017663838;  rgmfd_gate_loss: 7.898158e-05;  
+tri_loss_rgb: 0.004466304;  tri_loss_ir: 0.004526321;  
+r2i_cmo_loss: 0.79876035;  i2r_cmo_loss: 0.87932426;  
+rgmfd_rel_loss: 0.04808017;  rgb_cross_loss: 3.137337;  
+ir_cross_loss: 3.4353156;  
+R1:0.7383;   R10:0.8728;  R20:0.9146;  mAP:0.6819;  mINP:0.5425
+                   Best_R1: 0.7383;    Best mAP: 0.6819
+=================================================
+CRE diag | r2i:90.43%(170/188) i2r:92.13%(164/178) common:96.84%(153/158) specific:77.78%(7/9) remain:58.62%(17/29) cov_c:76.70% cov_all:95.15% stable_c:74.05%
+=================================================
+Epoch: 2;Time: 2026-05-31 10:58:59;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00011440000000000002
+r2r_id_loss: 0.15483892;  i2i_id_loss: 0.10989792;  
+rgmfd_orth_loss: 0.0022755633;  rgmfd_gate_loss: 0.00021888176;  
+tri_loss_rgb: 0.0036983953;  tri_loss_ir: 0.004037868;  
+r2i_cmo_loss: 0.38683185;  i2r_cmo_loss: 0.4038897;  
+rgmfd_rel_loss: 0.038031116;  rgb_cross_loss: 0.66079354;  
+ir_cross_loss: 0.69799083;  
+R1:0.7689;   R10:0.9053;  R20:0.9456;  mAP:0.7256;  mINP:0.5922
+                   Best_R1: 0.7689;    Best mAP: 0.7256
+=================================================
+CRE diag | r2i:93.30%(181/194) i2r:91.62%(175/191) common:95.51%(170/178) specific:83.33%(5/6) remain:47.06%(8/17) cov_c:86.41% cov_all:97.57% stable_c:88.20%
+=================================================
+Epoch: 3;Time: 2026-05-31 11:01:09;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00016885
+r2r_id_loss: 0.12336797;  i2i_id_loss: 0.11002522;  
+rgmfd_orth_loss: 0.0022188087;  rgmfd_gate_loss: 0.00018766904;  
+tri_loss_rgb: 0.0032219077;  tri_loss_ir: 0.0033561287;  
+r2i_cmo_loss: 0.28844562;  i2r_cmo_loss: 0.32062933;  
+rgmfd_rel_loss: 0.03717226;  rgb_cross_loss: 0.14673978;  
+ir_cross_loss: 0.115327306;  
+R1:0.8083;   R10:0.9383;  R20:0.9617;  mAP:0.7577;  mINP:0.6205
+                   Best_R1: 0.8083;    Best mAP: 0.7577
+=================================================
+CRE diag | r2i:92.86%(182/196) i2r:92.39%(182/197) common:93.72%(179/191) specific:100.00%(3/3) remain:50.00%(3/6) cov_c:92.72% cov_all:97.09% stable_c:93.19%
+=================================================
+Epoch: 4;Time: 2026-05-31 11:03:18;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00022330000000000003
+r2r_id_loss: 0.10639203;  i2i_id_loss: 0.09554335;  
+rgmfd_orth_loss: 0.002059082;  rgmfd_gate_loss: 0.00012700028;  
+tri_loss_rgb: 0.003118444;  tri_loss_ir: 0.0032340388;  
+r2i_cmo_loss: 0.24902461;  i2r_cmo_loss: 0.2804957;  
+rgmfd_rel_loss: 0.03716739;  rgb_cross_loss: 0.056850456;  
+ir_cross_loss: 0.04436124;  
+R1:0.8170;   R10:0.9383;  R20:0.9650;  mAP:0.7594;  mINP:0.6141
+                   Best_R1: 0.8170;    Best mAP: 0.7594
+=================================================
+CRE diag | r2i:93.40%(184/197) i2r:93.47%(186/199) common:94.36%(184/195) specific:0.00%(0/0) remain:50.00%(2/4) cov_c:94.66% cov_all:96.60% stable_c:97.44%
+=================================================
+Epoch: 5;Time: 2026-05-31 11:05:20;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00027775
+r2r_id_loss: 0.096638754;  i2i_id_loss: 0.08681654;  
+rgmfd_orth_loss: 0.0019275325;  rgmfd_gate_loss: 7.5467586e-05;  
+tri_loss_rgb: 0.0030860365;  tri_loss_ir: 0.0032781959;  
+r2i_cmo_loss: 0.22824472;  i2r_cmo_loss: 0.2522892;  
+rgmfd_rel_loss: 0.03669797;  rgb_cross_loss: 0.028688047;  
+ir_cross_loss: 0.024428777;  
+R1:0.8286;   R10:0.9495;  R20:0.9704;  mAP:0.7650;  mINP:0.6194
+                   Best_R1: 0.8286;    Best mAP: 0.7650
+=================================================
+CRE diag | r2i:93.43%(185/198) i2r:92.50%(185/200) common:93.91%(185/197) specific:0.00%(0/0) remain:0.00%(0/4) cov_c:95.63% cov_all:97.57% stable_c:98.98%
+=================================================
+Epoch: 6;Time: 2026-05-31 11:07:21;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.0003322
+r2r_id_loss: 0.097881295;  i2i_id_loss: 0.09036012;  
+rgmfd_orth_loss: 0.0018170321;  rgmfd_gate_loss: 4.433972e-05;  
+tri_loss_rgb: 0.0030795936;  tri_loss_ir: 0.00311324;  
+r2i_cmo_loss: 0.22457871;  i2r_cmo_loss: 0.24497612;  
+rgmfd_rel_loss: 0.036794372;  rgb_cross_loss: 0.020590335;  
+ir_cross_loss: 0.019417176;  
+R1:0.8155;   R10:0.9354;  R20:0.9617;  mAP:0.7562;  mINP:0.6190
+                   Best_R1: 0.8286;    Best mAP: 0.7650
+=================================================
+CRE diag | r2i:93.94%(186/198) i2r:92.89%(183/197) common:93.85%(183/195) specific:100.00%(2/2) remain:33.33%(1/3) cov_c:94.66% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 7;Time: 2026-05-31 11:09:22;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00038665
+r2r_id_loss: 0.10368487;  i2i_id_loss: 0.0984707;  
+rgmfd_orth_loss: 0.0017287835;  rgmfd_gate_loss: 3.018541e-05;  
+tri_loss_rgb: 0.0031305547;  tri_loss_ir: 0.0031644031;  
+r2i_cmo_loss: 0.23380367;  i2r_cmo_loss: 0.24928254;  
+rgmfd_rel_loss: 0.03769013;  rgb_cross_loss: 0.017681366;  
+ir_cross_loss: 0.018240135;  
+R1:0.8194;   R10:0.9379;  R20:0.9694;  mAP:0.7553;  mINP:0.6155
+                   Best_R1: 0.8286;    Best mAP: 0.7650
+=================================================
+CRE diag | r2i:93.43%(185/198) i2r:93.43%(185/198) common:93.91%(185/197) specific:0.00%(0/1) remain:0.00%(0/1) cov_c:95.63% cov_all:96.60% stable_c:98.98%
+=================================================
+Epoch: 8;Time: 2026-05-31 11:11:23;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00044110000000000004
+r2r_id_loss: 0.1367071;  i2i_id_loss: 0.13249548;  
+rgmfd_orth_loss: 0.0017254073;  rgmfd_gate_loss: 2.185535e-05;  
+tri_loss_rgb: 0.0046264073;  tri_loss_ir: 0.004626;  
+r2i_cmo_loss: 0.2872067;  i2r_cmo_loss: 0.29678956;  
+rgmfd_rel_loss: 0.041076038;  rgb_cross_loss: 0.026086263;  
+ir_cross_loss: 0.028099053;  
+R1:0.7573;   R10:0.9083;  R20:0.9451;  mAP:0.6920;  mINP:0.5446
+                   Best_R1: 0.8286;    Best mAP: 0.7650
+=================================================
+CRE diag | r2i:93.91%(185/197) i2r:93.26%(180/193) common:94.24%(180/191) specific:83.33%(5/6) remain:0.00%(0/2) cov_c:92.72% cov_all:96.60% stable_c:100.00%
+=================================================
+Epoch: 9;Time: 2026-05-31 11:13:25;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.0004955500000000001
+r2r_id_loss: 0.1176134;  i2i_id_loss: 0.120001994;  
+rgmfd_orth_loss: 0.0016763196;  rgmfd_gate_loss: 1.6627946e-05;  
+tri_loss_rgb: 0.0049898326;  tri_loss_ir: 0.0049580187;  
+r2i_cmo_loss: 0.29895777;  i2r_cmo_loss: 0.30383754;  
+rgmfd_rel_loss: 0.042495538;  rgb_cross_loss: 0.017629115;  
+ir_cross_loss: 0.017858293;  
+R1:0.7908;   R10:0.9277;  R20:0.9650;  mAP:0.7250;  mINP:0.5682
+                   Best_R1: 0.8286;    Best mAP: 0.7650
+=================================================
+CRE diag | r2i:93.47%(186/199) i2r:93.85%(183/195) common:93.85%(183/195) specific:75.00%(3/4) remain:0.00%(0/0) cov_c:94.66% cov_all:96.60% stable_c:96.92%
+=================================================
+Epoch: 10;Time: 2026-05-31 11:15:34;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.16445811;  i2i_id_loss: 0.16039638;  
+rgmfd_orth_loss: 0.0016469819;  rgmfd_gate_loss: 1.0001116e-05;  
+tri_loss_rgb: 0.005833999;  tri_loss_ir: 0.0058500003;  
+r2i_cmo_loss: 0.34260836;  i2r_cmo_loss: 0.35495636;  
+rgmfd_rel_loss: 0.045159813;  rgb_cross_loss: 0.03140633;  
+ir_cross_loss: 0.028556196;  
+R1:0.5898;   R10:0.7927;  R20:0.8563;  mAP:0.5103;  mINP:0.3410
+                   Best_R1: 0.8286;    Best mAP: 0.7650
+=================================================
+CRE diag | r2i:93.65%(177/189) i2r:79.22%(61/77) common:98.33%(59/60) specific:93.00%(93/100) remain:46.88%(15/32) cov_c:29.13% cov_all:92.72% stable_c:100.00%
+=================================================
+Epoch: 11;Time: 2026-05-31 11:17:41;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.19657646;  i2i_id_loss: 0.19237602;  
+rgmfd_orth_loss: 0.0016572517;  rgmfd_gate_loss: 6.739654e-06;  
+tri_loss_rgb: 0.0077074873;  tri_loss_ir: 0.008278537;  
+r2i_cmo_loss: 0.44083163;  rgmfd_rel_loss: 0.0480565;  
+rgb_cross_loss: 0.056463744;  ir_cross_loss: 0.044467457;  
+i2r_cmo_loss: 0.42847282;  
+R1:0.7481;   R10:0.8806;  R20:0.9277;  mAP:0.6895;  mINP:0.5411
+                   Best_R1: 0.8286;    Best mAP: 0.7650
+=================================================
+CRE diag | r2i:93.47%(186/199) i2r:93.33%(182/195) common:93.81%(182/194) specific:75.00%(3/4) remain:50.00%(1/2) cov_c:94.17% cov_all:97.09% stable_c:30.93%
+=================================================
+Epoch: 12;Time: 2026-05-31 11:19:42;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.10713565;  i2i_id_loss: 0.104977354;  
+rgmfd_orth_loss: 0.0015813526;  rgmfd_gate_loss: 4.4546546e-06;  
+tri_loss_rgb: 0.004446932;  tri_loss_ir: 0.004544516;  
+r2i_cmo_loss: 0.27434656;  i2r_cmo_loss: 0.28655288;  
+rgmfd_rel_loss: 0.04426395;  rgb_cross_loss: 0.012529;  
+ir_cross_loss: 0.0114283;  
+R1:0.7879;   R10:0.9184;  R20:0.9515;  mAP:0.7327;  mINP:0.5878
+                   Best_R1: 0.8286;    Best mAP: 0.7650
+=================================================
+CRE diag | r2i:93.47%(186/199) i2r:93.91%(185/197) common:94.39%(185/196) specific:0.00%(0/2) remain:50.00%(1/2) cov_c:95.15% cov_all:97.09% stable_c:98.47%
+=================================================
+Epoch: 13;Time: 2026-05-31 11:21:43;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.10329702;  i2i_id_loss: 0.10414671;  
+rgmfd_orth_loss: 0.0015564458;  rgmfd_gate_loss: 3.3876393e-06;  
+tri_loss_rgb: 0.0042462293;  tri_loss_ir: 0.0042797043;  
+r2i_cmo_loss: 0.2444178;  i2r_cmo_loss: 0.250633;  
+rgmfd_rel_loss: 0.04192903;  rgb_cross_loss: 0.009795985;  
+ir_cross_loss: 0.011980872;  
+R1:0.8117;   R10:0.9335;  R20:0.9670;  mAP:0.7490;  mINP:0.6070
+                   Best_R1: 0.8286;    Best mAP: 0.7650
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.94%(186/198) common:93.94%(186/198) specific:0.00%(0/2) remain:0.00%(0/0) cov_c:96.12% cov_all:97.09% stable_c:98.99%
+=================================================
+Epoch: 14;Time: 2026-05-31 11:23:44;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.12737231;  i2i_id_loss: 0.121706106;  
+rgmfd_orth_loss: 0.0015475287;  rgmfd_gate_loss: 4.1656717e-06;  
+tri_loss_rgb: 0.004971344;  tri_loss_ir: 0.005063103;  
+r2i_cmo_loss: 0.27126008;  i2r_cmo_loss: 0.2832935;  
+rgmfd_rel_loss: 0.043155335;  rgb_cross_loss: 0.021344522;  
+ir_cross_loss: 0.017078284;  
+R1:0.8359;   R10:0.9432;  R20:0.9699;  mAP:0.7674;  mINP:0.6043
+                   Best_R1: 0.8359;    Best mAP: 0.7674
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.43%(185/198) common:93.91%(185/197) specific:0.00%(0/1) remain:50.00%(1/2) cov_c:95.63% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 15;Time: 2026-05-31 11:25:52;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.105697975;  i2i_id_loss: 0.10553659;  
+rgmfd_orth_loss: 0.0014767385;  rgmfd_gate_loss: 3.719539e-06;  
+tri_loss_rgb: 0.0036711744;  tri_loss_ir: 0.0037098113;  
+r2i_cmo_loss: 0.23445614;  i2r_cmo_loss: 0.23923944;  
+rgmfd_rel_loss: 0.04041389;  rgb_cross_loss: 0.0110837575;  
+ir_cross_loss: 0.012872486;  
+R1:0.8063;   R10:0.9301;  R20:0.9646;  mAP:0.7282;  mINP:0.5636
+                   Best_R1: 0.8359;    Best mAP: 0.7674
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.97%(187/199) common:93.94%(186/198) specific:0.00%(0/1) remain:50.00%(1/2) cov_c:96.12% cov_all:97.57% stable_c:98.99%
+=================================================
+Epoch: 16;Time: 2026-05-31 11:27:53;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.14956796;  i2i_id_loss: 0.14722015;  
+rgmfd_orth_loss: 0.0015059498;  rgmfd_gate_loss: 3.44703e-06;  
+tri_loss_rgb: 0.006398351;  tri_loss_ir: 0.0065012053;  
+r2i_cmo_loss: 0.31616467;  i2r_cmo_loss: 0.32061076;  
+rgmfd_rel_loss: 0.045945637;  rgb_cross_loss: 0.02384431;  
+ir_cross_loss: 0.02766502;  
+R1:0.8063;   R10:0.9408;  R20:0.9680;  mAP:0.7423;  mINP:0.5850
+                   Best_R1: 0.8359;    Best mAP: 0.7674
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.47%(186/199) common:93.47%(186/199) specific:0.00%(0/1) remain:0.00%(0/0) cov_c:96.60% cov_all:97.09% stable_c:98.99%
+=================================================
+Epoch: 17;Time: 2026-05-31 11:30:02;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.104401335;  i2i_id_loss: 0.102978356;  
+rgmfd_orth_loss: 0.0014167302;  rgmfd_gate_loss: 1.7231284e-06;  
+tri_loss_rgb: 0.0038967389;  tri_loss_ir: 0.00389828;  
+r2i_cmo_loss: 0.23858029;  i2r_cmo_loss: 0.24873973;  
+rgmfd_rel_loss: 0.041449875;  rgb_cross_loss: 0.009664861;  
+ir_cross_loss: 0.009988697;  
+R1:0.8117;   R10:0.9451;  R20:0.9699;  mAP:0.7521;  mINP:0.6066
+                   Best_R1: 0.8359;    Best mAP: 0.7674
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.00%(186/200) common:93.00%(186/200) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.09% cov_all:97.09% stable_c:99.50%
+=================================================
+Epoch: 18;Time: 2026-05-31 11:32:04;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.124889955;  i2i_id_loss: 0.12495956;  
+rgmfd_orth_loss: 0.001435347;  rgmfd_gate_loss: 4.219704e-06;  
+tri_loss_rgb: 0.004560911;  tri_loss_ir: 0.0046174596;  
+r2i_cmo_loss: 0.24619778;  i2r_cmo_loss: 0.25543702;  
+rgmfd_rel_loss: 0.04146338;  rgb_cross_loss: 0.016551636;  
+ir_cross_loss: 0.020142144;  
+R1:0.6738;   R10:0.8617;  R20:0.9087;  mAP:0.5931;  mINP:0.4291
+                   Best_R1: 0.8359;    Best mAP: 0.7674
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.40%(184/197) common:93.40%(184/197) specific:66.67%(2/3) remain:0.00%(0/0) cov_c:95.63% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 19;Time: 2026-05-31 11:34:11;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.21704797;  i2i_id_loss: 0.21694118;  
+rgmfd_orth_loss: 0.0014286619;  rgmfd_gate_loss: 8.634138e-06;  
+tri_loss_rgb: 0.010375118;  tri_loss_ir: 0.010393004;  
+r2i_cmo_loss: 0.42818305;  i2r_cmo_loss: 0.425788;  
+rgmfd_rel_loss: 0.053715885;  rgb_cross_loss: 0.060378842;  
+ir_cross_loss: 0.049443204;  
+R1:0.6908;   R10:0.8403;  R20:0.8937;  mAP:0.6002;  mINP:0.4257
+                   Best_R1: 0.8359;    Best mAP: 0.7674
+=================================================
+CRE diag | r2i:93.43%(185/198) i2r:94.85%(184/194) common:95.26%(181/190) specific:66.67%(4/6) remain:75.00%(3/4) cov_c:92.23% cov_all:97.09% stable_c:98.95%
+=================================================
+Epoch: 20;Time: 2026-05-31 11:36:14;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.11514714;  i2i_id_loss: 0.11507189;  
+rgmfd_orth_loss: 0.0014568109;  rgmfd_gate_loss: 3.2492615e-06;  
+tri_loss_rgb: 0.0059722164;  tri_loss_ir: 0.006136449;  
+r2i_cmo_loss: 0.28691584;  i2r_cmo_loss: 0.29649737;  
+rgmfd_rel_loss: 0.046842065;  rgb_cross_loss: 0.010482426;  
+ir_cross_loss: 0.0116356565;  
+R1:0.8165;   R10:0.9369;  R20:0.9655;  mAP:0.7543;  mINP:0.5970
+                   Best_R1: 0.8359;    Best mAP: 0.7674
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.47%(186/199) common:93.43%(185/198) specific:100.00%(1/1) remain:100.00%(1/1) cov_c:96.12% cov_all:97.09% stable_c:95.96%
+=================================================
+Epoch: 21;Time: 2026-05-31 11:38:18;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.09746599;  i2i_id_loss: 0.09741516;  
+rgmfd_orth_loss: 0.0014657415;  rgmfd_gate_loss: 2.025714e-06;  
+tri_loss_rgb: 0.003801961;  tri_loss_ir: 0.003822533;  
+r2i_cmo_loss: 0.22004482;  i2r_cmo_loss: 0.22597945;  
+rgmfd_rel_loss: 0.04145301;  rgb_cross_loss: 0.008053892;  
+ir_cross_loss: 0.010536685;  
+R1:0.8471;   R10:0.9481;  R20:0.9786;  mAP:0.7807;  mINP:0.6230
+                   Best_R1: 0.8471;    Best mAP: 0.7807
+=================================================
+CRE diag | r2i:93.50%(187/200) i2r:92.96%(185/199) common:93.43%(185/198) specific:100.00%(1/1) remain:0.00%(0/1) cov_c:96.12% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 22;Time: 2026-05-31 11:40:24;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.09733842;  i2i_id_loss: 0.09655131;  
+rgmfd_orth_loss: 0.001430791;  rgmfd_gate_loss: 2.7650967e-06;  
+tri_loss_rgb: 0.0036500606;  tri_loss_ir: 0.00367626;  
+r2i_cmo_loss: 0.22166595;  i2r_cmo_loss: 0.22871034;  
+rgmfd_rel_loss: 0.0406724;  rgb_cross_loss: 0.010136205;  
+ir_cross_loss: 0.012486395;  
+R1:0.8325;   R10:0.9490;  R20:0.9723;  mAP:0.7739;  mINP:0.6269
+                   Best_R1: 0.8471;    Best mAP: 0.7807
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.43%(185/198) common:93.43%(185/198) specific:50.00%(1/2) remain:0.00%(0/0) cov_c:96.12% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 23;Time: 2026-05-31 11:42:28;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.106934115;  i2i_id_loss: 0.10440234;  
+rgmfd_orth_loss: 0.0014009526;  rgmfd_gate_loss: 3.3386862e-06;  
+tri_loss_rgb: 0.0036629364;  tri_loss_ir: 0.003711338;  
+r2i_cmo_loss: 0.23482011;  i2r_cmo_loss: 0.2368145;  
+rgmfd_rel_loss: 0.040591434;  rgb_cross_loss: 0.013388764;  
+ir_cross_loss: 0.013242094;  
+R1:0.8291;   R10:0.9442;  R20:0.9762;  mAP:0.7598;  mINP:0.6052
+                   Best_R1: 0.8471;    Best mAP: 0.7807
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.50%(187/200) common:93.47%(186/199) specific:0.00%(0/0) remain:100.00%(1/1) cov_c:96.60% cov_all:97.09% stable_c:99.50%
+=================================================
+Epoch: 24;Time: 2026-05-31 11:44:32;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.1089634;  i2i_id_loss: 0.10485754;  
+rgmfd_orth_loss: 0.0013819651;  rgmfd_gate_loss: 5.215772e-06;  
+tri_loss_rgb: 0.0038775075;  tri_loss_ir: 0.003909177;  
+r2i_cmo_loss: 0.23941568;  i2r_cmo_loss: 0.2479553;  
+rgmfd_rel_loss: 0.040729973;  rgb_cross_loss: 0.012909573;  
+ir_cross_loss: 0.012521814;  
+R1:0.7301;   R10:0.8898;  R20:0.9383;  mAP:0.6802;  mINP:0.5370
+                   Best_R1: 0.8471;    Best mAP: 0.7807
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.43%(185/198) common:93.43%(185/198) specific:50.00%(1/2) remain:0.00%(0/0) cov_c:96.12% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 25;Time: 2026-05-31 11:46:35;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.21746963;  i2i_id_loss: 0.23862967;  
+rgmfd_orth_loss: 0.0014034729;  rgmfd_gate_loss: 4.720153e-06;  
+tri_loss_rgb: 0.009993583;  tri_loss_ir: 0.009946426;  
+r2i_cmo_loss: 0.41028002;  i2r_cmo_loss: 0.40773866;  
+rgmfd_rel_loss: 0.052474197;  rgb_cross_loss: 0.054789033;  
+ir_cross_loss: 0.0778443;  
+R1:0.7947;   R10:0.9243;  R20:0.9573;  mAP:0.7202;  mINP:0.5524
+                   Best_R1: 0.8471;    Best mAP: 0.7807
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.50%(187/200) common:93.47%(186/199) specific:0.00%(0/0) remain:100.00%(1/1) cov_c:96.60% cov_all:97.09% stable_c:99.50%
+=================================================
+Epoch: 26;Time: 2026-05-31 11:48:39;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.1109139;  i2i_id_loss: 0.10999647;  
+rgmfd_orth_loss: 0.0013857782;  rgmfd_gate_loss: 1.5223699e-06;  
+tri_loss_rgb: 0.005254421;  tri_loss_ir: 0.0053097215;  
+r2i_cmo_loss: 0.27032495;  i2r_cmo_loss: 0.273182;  
+rgmfd_rel_loss: 0.046363506;  rgb_cross_loss: 0.007542298;  
+ir_cross_loss: 0.008584114;  
+R1:0.8320;   R10:0.9481;  R20:0.9786;  mAP:0.7629;  mINP:0.6054
+                   Best_R1: 0.8471;    Best mAP: 0.7807
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.50%(187/200) common:93.47%(186/199) specific:0.00%(0/0) remain:100.00%(1/1) cov_c:96.60% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 27;Time: 2026-05-31 11:50:48;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.099060416;  i2i_id_loss: 0.09907984;  
+rgmfd_orth_loss: 0.0014038081;  rgmfd_gate_loss: 1.6590287e-06;  
+tri_loss_rgb: 0.003822972;  tri_loss_ir: 0.0038326369;  
+r2i_cmo_loss: 0.2266897;  i2r_cmo_loss: 0.23498753;  
+rgmfd_rel_loss: 0.04211891;  rgb_cross_loss: 0.008610971;  
+ir_cross_loss: 0.009741951;  
+R1:0.8471;   R10:0.9510;  R20:0.9728;  mAP:0.7834;  mINP:0.6352
+                   Best_R1: 0.8471;    Best mAP: 0.7834
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.00%(186/200) common:93.00%(186/200) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.09% cov_all:97.09% stable_c:99.50%
+=================================================
+Epoch: 28;Time: 2026-05-31 11:52:51;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.098780416;  i2i_id_loss: 0.09419177;  
+rgmfd_orth_loss: 0.0014037271;  rgmfd_gate_loss: 2.4738658e-06;  
+tri_loss_rgb: 0.003466354;  tri_loss_ir: 0.0035249984;  
+r2i_cmo_loss: 0.21784583;  i2r_cmo_loss: 0.2285189;  
+rgmfd_rel_loss: 0.040723104;  rgb_cross_loss: 0.010772853;  
+ir_cross_loss: 0.012200988;  
+R1:0.8350;   R10:0.9461;  R20:0.9709;  mAP:0.7682;  mINP:0.6109
+                   Best_R1: 0.8471;    Best mAP: 0.7834
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.00%(186/200) common:93.00%(186/200) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.09% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 29;Time: 2026-05-31 11:54:59;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.09918537;  i2i_id_loss: 0.09498568;  
+rgmfd_orth_loss: 0.0013805986;  rgmfd_gate_loss: 4.0627533e-06;  
+tri_loss_rgb: 0.0034603218;  tri_loss_ir: 0.003535669;  
+r2i_cmo_loss: 0.21952558;  i2r_cmo_loss: 0.22850952;  
+rgmfd_rel_loss: 0.03959574;  rgb_cross_loss: 0.011108626;  
+ir_cross_loss: 0.011489851;  
+R1:0.8481;   R10:0.9534;  R20:0.9733;  mAP:0.7751;  mINP:0.6180
+                   Best_R1: 0.8481;    Best mAP: 0.7834
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.00%(186/200) common:93.00%(186/200) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.09% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 30;Time: 2026-05-31 11:57:01;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.19766198;  i2i_id_loss: 0.19832097;  
+rgmfd_orth_loss: 0.0013753372;  rgmfd_gate_loss: 6.630273e-06;  
+tri_loss_rgb: 0.008853717;  tri_loss_ir: 0.008841442;  
+r2i_cmo_loss: 0.35480404;  i2r_cmo_loss: 0.36950788;  
+rgmfd_rel_loss: 0.050283037;  rgb_cross_loss: 0.043141548;  
+ir_cross_loss: 0.045258086;  
+R1:0.6602;   R10:0.8408;  R20:0.8932;  mAP:0.5867;  mINP:0.4115
+                   Best_R1: 0.8481;    Best mAP: 0.7834
+=================================================
+CRE diag | r2i:93.47%(186/199) i2r:93.58%(175/187) common:94.59%(175/185) specific:80.00%(8/10) remain:25.00%(1/4) cov_c:89.81% cov_all:96.60% stable_c:100.00%
+=================================================
+Epoch: 31;Time: 2026-05-31 11:59:06;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.14879797;  i2i_id_loss: 0.1521299;  
+rgmfd_orth_loss: 0.0013180545;  rgmfd_gate_loss: 3.4655843e-06;  
+tri_loss_rgb: 0.007524554;  tri_loss_ir: 0.0075276364;  
+r2i_cmo_loss: 0.35238248;  i2r_cmo_loss: 0.3577658;  
+rgmfd_rel_loss: 0.05043926;  rgb_cross_loss: 0.024399977;  
+ir_cross_loss: 0.024953194;  weak_r2c_loss: 0.0016127407;  
+
+R1:0.8539;   R10:0.9607;  R20:0.9782;  mAP:0.7779;  mINP:0.6142
+                   Best_R1: 0.8539;    Best mAP: 0.7834
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:92.93%(184/198) common:92.93%(184/198) specific:100.00%(2/2) remain:0.00%(0/0) cov_c:96.12% cov_all:97.09% stable_c:92.93%
+=================================================
+Epoch: 32;Time: 2026-05-31 12:01:12;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.10160912;  i2i_id_loss: 0.09795672;  
+rgmfd_orth_loss: 0.0013459082;  rgmfd_gate_loss: 1.8361476e-06;  
+tri_loss_rgb: 0.0040830597;  tri_loss_ir: 0.004120466;  
+r2i_cmo_loss: 0.23205131;  i2r_cmo_loss: 0.24259214;  
+rgmfd_rel_loss: 0.042657454;  rgb_cross_loss: 0.008245241;  
+ir_cross_loss: 0.0094490545;  
+R1:0.8602;   R10:0.9573;  R20:0.9777;  mAP:0.7859;  mINP:0.6310
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.00%(186/200) common:93.00%(186/200) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.09% cov_all:97.09% stable_c:99.00%
+=================================================
+Epoch: 33;Time: 2026-05-31 12:03:20;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.095550016;  i2i_id_loss: 0.08996656;  
+rgmfd_orth_loss: 0.0013328547;  rgmfd_gate_loss: 2.533217e-06;  
+tri_loss_rgb: 0.0033053737;  tri_loss_ir: 0.0033343101;  
+r2i_cmo_loss: 0.21153504;  i2r_cmo_loss: 0.22446431;  
+rgmfd_rel_loss: 0.04019632;  rgb_cross_loss: 0.009614784;  
+ir_cross_loss: 0.011042657;  
+R1:0.8485;   R10:0.9592;  R20:0.9772;  mAP:0.7795;  mINP:0.6228
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.00%(186/200) common:93.00%(186/200) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.09% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 34;Time: 2026-05-31 12:05:27;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.1376016;  i2i_id_loss: 0.13488641;  
+rgmfd_orth_loss: 0.0013316739;  rgmfd_gate_loss: 5.1689e-06;  
+tri_loss_rgb: 0.0054203784;  tri_loss_ir: 0.0054273778;  
+r2i_cmo_loss: 0.2620631;  i2r_cmo_loss: 0.2687351;  
+rgmfd_rel_loss: 0.042831592;  rgb_cross_loss: 0.0247092;  
+ir_cross_loss: 0.027158355;  
+R1:0.7252;   R10:0.8835;  R20:0.9267;  mAP:0.6401;  mINP:0.4675
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.96%(185/199) i2r:94.62%(176/186) common:94.59%(175/185) specific:71.43%(10/14) remain:100.00%(1/1) cov_c:89.81% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 35;Time: 2026-05-31 12:07:35;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.11661093;  i2i_id_loss: 0.11905212;  
+rgmfd_orth_loss: 0.0012455517;  rgmfd_gate_loss: 3.9535157e-06;  
+tri_loss_rgb: 0.005420591;  tri_loss_ir: 0.005418165;  
+r2i_cmo_loss: 0.28671747;  i2r_cmo_loss: 0.29728293;  
+rgmfd_rel_loss: 0.045461703;  rgb_cross_loss: 0.0126929395;  
+ir_cross_loss: 0.016789699;  weak_r2c_loss: 0.0015668728;  
+
+R1:0.8243;   R10:0.9330;  R20:0.9587;  mAP:0.7396;  mINP:0.5679
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.00%(186/200) common:93.00%(186/200) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.09% cov_all:97.09% stable_c:92.50%
+=================================================
+Epoch: 36;Time: 2026-05-31 12:09:38;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.1101399;  i2i_id_loss: 0.11214258;  
+rgmfd_orth_loss: 0.0012197444;  rgmfd_gate_loss: 2.3785854e-06;  
+tri_loss_rgb: 0.0044499957;  tri_loss_ir: 0.004485431;  
+r2i_cmo_loss: 0.25131688;  i2r_cmo_loss: 0.25677755;  
+rgmfd_rel_loss: 0.042555194;  rgb_cross_loss: 0.010917883;  
+ir_cross_loss: 0.015722737;  
+R1:0.8306;   R10:0.9500;  R20:0.9689;  mAP:0.7661;  mINP:0.6089
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:93.00%(186/200) common:93.00%(186/200) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.09% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 37;Time: 2026-05-31 12:11:45;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.10143724;  i2i_id_loss: 0.09554238;  
+rgmfd_orth_loss: 0.0012511032;  rgmfd_gate_loss: 3.2933538e-06;  
+tri_loss_rgb: 0.0037728418;  tri_loss_ir: 0.0037701507;  
+r2i_cmo_loss: 0.22466551;  i2r_cmo_loss: 0.23473926;  
+rgmfd_rel_loss: 0.039724756;  rgb_cross_loss: 0.011516087;  
+ir_cross_loss: 0.01189161;  
+R1:0.8267;   R10:0.9413;  R20:0.9709;  mAP:0.7643;  mINP:0.6148
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:93.00%(186/200) i2r:92.57%(187/202) common:93.00%(186/200) specific:0.00%(0/0) remain:50.00%(1/2) cov_c:97.09% cov_all:98.06% stable_c:100.00%
+=================================================
+Epoch: 38;Time: 2026-05-31 12:13:47;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.18963078;  i2i_id_loss: 0.20075566;  
+rgmfd_orth_loss: 0.0013112943;  rgmfd_gate_loss: 6.9254806e-06;  
+tri_loss_rgb: 0.007720431;  tri_loss_ir: 0.0077711414;  
+r2i_cmo_loss: 0.34191167;  i2r_cmo_loss: 0.35038534;  
+rgmfd_rel_loss: 0.04769902;  weak_r2c_loss: 0.014885819;  
+rgb_cross_loss: 0.038553603;  ir_cross_loss: 0.05433045;  
+
+R1:0.6956;   R10:0.8515;  R20:0.8990;  mAP:0.5958;  mINP:0.4096
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:93.50%(187/200) i2r:94.24%(180/191) common:94.74%(180/190) specific:66.67%(6/9) remain:0.00%(0/1) cov_c:92.23% cov_all:97.09% stable_c:100.00%
+=================================================
+Epoch: 39;Time: 2026-05-31 12:15:55;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.13404892;  i2i_id_loss: 0.12976283;  
+rgmfd_orth_loss: 0.0012547325;  rgmfd_gate_loss: 4.478163e-06;  
+tri_loss_rgb: 0.0064175073;  tri_loss_ir: 0.006516308;  
+r2i_cmo_loss: 0.3264506;  i2r_cmo_loss: 0.34026504;  
+rgmfd_rel_loss: 0.04881384;  rgb_cross_loss: 0.01940776;  
+ir_cross_loss: 0.015745627;  weak_r2c_loss: 0.0019062489;  
+
+R1:0.8374;   R10:0.9456;  R20:0.9660;  mAP:0.7511;  mINP:0.5842
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:93.50%(187/200) common:93.47%(186/199) specific:0.00%(0/1) remain:100.00%(1/1) cov_c:96.60% cov_all:97.57% stable_c:95.48%
+=================================================
+Epoch: 40;Time: 2026-05-31 12:18:03;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.107535586;  i2i_id_loss: 0.10033709;  
+rgmfd_orth_loss: 0.0012651918;  rgmfd_gate_loss: 2.2451993e-06;  
+tri_loss_rgb: 0.004147905;  tri_loss_ir: 0.0042214673;  
+r2i_cmo_loss: 0.23943299;  i2r_cmo_loss: 0.25569424;  
+rgmfd_rel_loss: 0.04307694;  rgb_cross_loss: 0.012252366;  
+ir_cross_loss: 0.01113034;  weak_r2c_loss: 0.0014091547;  
+
+R1:0.8544;   R10:0.9558;  R20:0.9796;  mAP:0.7729;  mINP:0.6109
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:93.03%(187/201) common:93.00%(186/200) specific:0.00%(0/1) remain:100.00%(1/1) cov_c:97.09% cov_all:98.06% stable_c:99.50%
+=================================================
+Epoch: 41;Time: 2026-05-31 12:20:11;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.094128914;  i2i_id_loss: 0.0911021;  
+rgmfd_orth_loss: 0.0012661509;  rgmfd_gate_loss: 2.6065688e-06;  
+tri_loss_rgb: 0.0035104642;  tri_loss_ir: 0.00356379;  
+r2i_cmo_loss: 0.21572395;  i2r_cmo_loss: 0.22488701;  
+rgmfd_rel_loss: 0.03963807;  rgb_cross_loss: 0.008821725;  
+ir_cross_loss: 0.009942877;  weak_r2c_loss: 0.01206741;  
+
+R1:0.8369;   R10:0.9515;  R20:0.9801;  mAP:0.7713;  mINP:0.6202
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:99.50%
+=================================================
+Epoch: 42;Time: 2026-05-31 12:22:20;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.09888899;  i2i_id_loss: 0.093160346;  
+rgmfd_orth_loss: 0.0012556391;  rgmfd_gate_loss: 3.7328427e-06;  
+tri_loss_rgb: 0.0035572702;  tri_loss_ir: 0.0036177267;  
+r2i_cmo_loss: 0.21841536;  i2r_cmo_loss: 0.22888789;  
+rgmfd_rel_loss: 0.03922847;  rgb_cross_loss: 0.011329382;  
+ir_cross_loss: 0.011152585;  
+R1:0.8374;   R10:0.9539;  R20:0.9743;  mAP:0.7591;  mINP:0.5958
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 43;Time: 2026-05-31 12:24:28;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.11034348;  i2i_id_loss: 0.107664526;  
+rgmfd_orth_loss: 0.0012360659;  rgmfd_gate_loss: 4.8879283e-06;  
+tri_loss_rgb: 0.0040979777;  tri_loss_ir: 0.004123203;  
+r2i_cmo_loss: 0.24324831;  i2r_cmo_loss: 0.25214353;  
+rgmfd_rel_loss: 0.040653255;  rgb_cross_loss: 0.012775164;  
+ir_cross_loss: 0.014715487;  
+R1:0.8097;   R10:0.9335;  R20:0.9655;  mAP:0.7383;  mINP:0.5794
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 44;Time: 2026-05-31 12:26:31;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.11410397;  i2i_id_loss: 0.1051185;  
+rgmfd_orth_loss: 0.0012119483;  rgmfd_gate_loss: 5.1002753e-06;  
+tri_loss_rgb: 0.0040437644;  tri_loss_ir: 0.004075333;  
+r2i_cmo_loss: 0.23951074;  i2r_cmo_loss: 0.24964574;  
+rgmfd_rel_loss: 0.04024062;  rgb_cross_loss: 0.014307183;  
+ir_cross_loss: 0.012387297;  
+R1:0.7733;   R10:0.9087;  R20:0.9505;  mAP:0.6788;  mINP:0.4943
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.46%(184/199) common:92.46%(184/199) specific:100.00%(2/2) remain:0.00%(0/0) cov_c:96.60% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 45;Time: 2026-05-31 12:28:41;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.2034601;  i2i_id_loss: 0.21617337;  
+rgmfd_orth_loss: 0.001194416;  rgmfd_gate_loss: 7.0649253e-06;  
+tri_loss_rgb: 0.009683431;  tri_loss_ir: 0.009729513;  
+r2i_cmo_loss: 0.40793854;  i2r_cmo_loss: 0.41169655;  
+rgmfd_rel_loss: 0.05166558;  rgb_cross_loss: 0.042327676;  
+ir_cross_loss: 0.05616895;  
+R1:0.8243;   R10:0.9524;  R20:0.9840;  mAP:0.7493;  mINP:0.5741
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:99.00%
+=================================================
+Epoch: 46;Time: 2026-05-31 12:30:44;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.11031876;  i2i_id_loss: 0.10590778;  
+rgmfd_orth_loss: 0.0012149513;  rgmfd_gate_loss: 2.5443921e-06;  
+tri_loss_rgb: 0.0044111474;  tri_loss_ir: 0.0044250577;  
+r2i_cmo_loss: 0.25560302;  i2r_cmo_loss: 0.26589498;  
+rgmfd_rel_loss: 0.043296285;  rgb_cross_loss: 0.0087833;  
+ir_cross_loss: 0.009169085;  
+R1:0.8442;   R10:0.9524;  R20:0.9777;  mAP:0.7685;  mINP:0.6038
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 47;Time: 2026-05-31 12:32:57;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.096910186;  i2i_id_loss: 0.0934249;  
+rgmfd_orth_loss: 0.0012264439;  rgmfd_gate_loss: 2.4594003e-06;  
+tri_loss_rgb: 0.0035064828;  tri_loss_ir: 0.0035326495;  
+r2i_cmo_loss: 0.22141184;  i2r_cmo_loss: 0.2330846;  
+rgmfd_rel_loss: 0.039975535;  rgb_cross_loss: 0.008466716;  
+ir_cross_loss: 0.009674845;  
+R1:0.8524;   R10:0.9534;  R20:0.9820;  mAP:0.7788;  mINP:0.6143
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 48;Time: 2026-05-31 12:35:00;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.09513605;  i2i_id_loss: 0.091969654;  
+rgmfd_orth_loss: 0.0012310484;  rgmfd_gate_loss: 2.6989442e-06;  
+tri_loss_rgb: 0.0034908801;  tri_loss_ir: 0.0035475963;  
+r2i_cmo_loss: 0.21897238;  i2r_cmo_loss: 0.2263399;  
+rgmfd_rel_loss: 0.038575757;  rgb_cross_loss: 0.009315564;  
+ir_cross_loss: 0.011022688;  
+R1:0.8456;   R10:0.9558;  R20:0.9796;  mAP:0.7787;  mINP:0.6234
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 49;Time: 2026-05-31 12:37:13;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 0.00055
+r2r_id_loss: 0.115317844;  i2i_id_loss: 0.11208626;  
+rgmfd_orth_loss: 0.0012191368;  rgmfd_gate_loss: 3.2367343e-06;  
+tri_loss_rgb: 0.004319307;  tri_loss_ir: 0.004343442;  
+r2i_cmo_loss: 0.24677183;  i2r_cmo_loss: 0.2570589;  
+rgmfd_rel_loss: 0.040808693;  rgb_cross_loss: 0.015393695;  
+ir_cross_loss: 0.015347988;  
+R1:0.7316;   R10:0.8762;  R20:0.9325;  mAP:0.6605;  mINP:0.5073
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 50;Time: 2026-05-31 12:39:25;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.07758264;  i2i_id_loss: 0.078662544;  
+rgmfd_orth_loss: 0.0011898937;  rgmfd_gate_loss: 2.9565438e-06;  
+tri_loss_rgb: 0.0035296357;  tri_loss_ir: 0.0035720624;  
+r2i_cmo_loss: 0.24294087;  i2r_cmo_loss: 0.24348877;  
+rgmfd_rel_loss: 0.039449666;  rgb_cross_loss: 0.007899499;  
+ir_cross_loss: 0.00898049;  
+R1:0.8451;   R10:0.9534;  R20:0.9806;  mAP:0.7840;  mINP:0.6335
+                   Best_R1: 0.8602;    Best mAP: 0.7859
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 51;Time: 2026-05-31 12:41:38;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.06536208;  i2i_id_loss: 0.062391557;  
+rgmfd_orth_loss: 0.0011800427;  rgmfd_gate_loss: 2.73848e-06;  
+tri_loss_rgb: 0.0026879713;  tri_loss_ir: 0.0027759492;  
+r2i_cmo_loss: 0.20023091;  i2r_cmo_loss: 0.20395748;  
+rgmfd_rel_loss: 0.036662355;  rgb_cross_loss: 0.005214873;  
+ir_cross_loss: 0.005265462;  
+R1:0.8519;   R10:0.9553;  R20:0.9796;  mAP:0.7901;  mINP:0.6441
+                   Best_R1: 0.8602;    Best mAP: 0.7901
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 52;Time: 2026-05-31 12:43:52;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.07096459;  i2i_id_loss: 0.068292916;  
+rgmfd_orth_loss: 0.0011703266;  rgmfd_gate_loss: 2.5960078e-06;  
+tri_loss_rgb: 0.0024907638;  tri_loss_ir: 0.0025265443;  
+r2i_cmo_loss: 0.18283191;  i2r_cmo_loss: 0.19020411;  
+rgmfd_rel_loss: 0.035654314;  rgb_cross_loss: 0.0058415784;  
+ir_cross_loss: 0.005861037;  
+R1:0.8607;   R10:0.9563;  R20:0.9791;  mAP:0.7959;  mINP:0.6501
+                   Best_R1: 0.8607;    Best mAP: 0.7959
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 53;Time: 2026-05-31 12:45:56;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.07244999;  i2i_id_loss: 0.07050022;  
+rgmfd_orth_loss: 0.0011672461;  rgmfd_gate_loss: 2.6519215e-06;  
+tri_loss_rgb: 0.0022894696;  tri_loss_ir: 0.0023543562;  
+r2i_cmo_loss: 0.17232524;  i2r_cmo_loss: 0.18353039;  
+rgmfd_rel_loss: 0.034642264;  rgb_cross_loss: 0.005745149;  
+ir_cross_loss: 0.006389515;  
+R1:0.8563;   R10:0.9544;  R20:0.9762;  mAP:0.7976;  mINP:0.6551
+                   Best_R1: 0.8607;    Best mAP: 0.7976
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 54;Time: 2026-05-31 12:48:01;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.07410182;  i2i_id_loss: 0.06945888;  
+rgmfd_orth_loss: 0.0011575974;  rgmfd_gate_loss: 2.9414434e-06;  
+tri_loss_rgb: 0.002257591;  tri_loss_ir: 0.0023244822;  
+r2i_cmo_loss: 0.16758567;  i2r_cmo_loss: 0.17981473;  
+rgmfd_rel_loss: 0.034031317;  rgb_cross_loss: 0.0063490723;  
+ir_cross_loss: 0.006577785;  
+R1:0.8583;   R10:0.9626;  R20:0.9830;  mAP:0.8001;  mINP:0.6565
+                   Best_R1: 0.8607;    Best mAP: 0.8001
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 55;Time: 2026-05-31 12:50:06;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.07353711;  i2i_id_loss: 0.069396086;  
+rgmfd_orth_loss: 0.0011507662;  rgmfd_gate_loss: 3.4933917e-06;  
+tri_loss_rgb: 0.0023073105;  tri_loss_ir: 0.0023526317;  
+r2i_cmo_loss: 0.16510054;  i2r_cmo_loss: 0.17689764;  
+rgmfd_rel_loss: 0.033531565;  rgb_cross_loss: 0.0068678022;  
+ir_cross_loss: 0.0071122763;  
+R1:0.8684;   R10:0.9650;  R20:0.9820;  mAP:0.8127;  mINP:0.6713
+                   Best_R1: 0.8684;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 56;Time: 2026-05-31 12:52:19;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.0740301;  i2i_id_loss: 0.06847708;  
+rgmfd_orth_loss: 0.0011430397;  rgmfd_gate_loss: 3.9609727e-06;  
+tri_loss_rgb: 0.0020500517;  tri_loss_ir: 0.0020739145;  
+r2i_cmo_loss: 0.16437308;  i2r_cmo_loss: 0.17402042;  
+rgmfd_rel_loss: 0.032966346;  rgb_cross_loss: 0.0069830436;  
+ir_cross_loss: 0.007672033;  
+R1:0.8612;   R10:0.9597;  R20:0.9796;  mAP:0.8025;  mINP:0.6620
+                   Best_R1: 0.8684;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 57;Time: 2026-05-31 12:54:32;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.07198713;  i2i_id_loss: 0.06740869;  
+rgmfd_orth_loss: 0.0011390599;  rgmfd_gate_loss: 4.30393e-06;  
+tri_loss_rgb: 0.0020992097;  tri_loss_ir: 0.002145034;  
+r2i_cmo_loss: 0.16287033;  i2r_cmo_loss: 0.17074299;  
+rgmfd_rel_loss: 0.03234022;  rgb_cross_loss: 0.006883202;  
+ir_cross_loss: 0.0073559117;  
+R1:0.8602;   R10:0.9583;  R20:0.9796;  mAP:0.8052;  mINP:0.6631
+                   Best_R1: 0.8684;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 58;Time: 2026-05-31 12:56:36;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.07307631;  i2i_id_loss: 0.06841328;  
+rgmfd_orth_loss: 0.0011302634;  rgmfd_gate_loss: 5.0322046e-06;  
+tri_loss_rgb: 0.002076121;  tri_loss_ir: 0.0021047355;  
+r2i_cmo_loss: 0.16177179;  i2r_cmo_loss: 0.17063867;  
+rgmfd_rel_loss: 0.03191758;  rgb_cross_loss: 0.0077105225;  
+ir_cross_loss: 0.0077140806;  
+R1:0.8587;   R10:0.9539;  R20:0.9767;  mAP:0.8015;  mINP:0.6594
+                   Best_R1: 0.8684;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 59;Time: 2026-05-31 12:58:39;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.07152074;  i2i_id_loss: 0.06798931;  
+rgmfd_orth_loss: 0.0011254398;  rgmfd_gate_loss: 5.5025907e-06;  
+tri_loss_rgb: 0.002011981;  tri_loss_ir: 0.0020610513;  
+r2i_cmo_loss: 0.16124901;  i2r_cmo_loss: 0.17022856;  
+rgmfd_rel_loss: 0.03171346;  rgb_cross_loss: 0.0076190005;  
+ir_cross_loss: 0.007870452;  
+R1:0.8641;   R10:0.9602;  R20:0.9777;  mAP:0.8022;  mINP:0.6592
+                   Best_R1: 0.8684;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 60;Time: 2026-05-31 13:00:44;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.070696354;  i2i_id_loss: 0.06540778;  
+rgmfd_orth_loss: 0.0011181916;  rgmfd_gate_loss: 5.9153044e-06;  
+tri_loss_rgb: 0.0018133398;  tri_loss_ir: 0.0018195399;  
+r2i_cmo_loss: 0.15894046;  i2r_cmo_loss: 0.1671599;  
+rgmfd_rel_loss: 0.030893099;  rgb_cross_loss: 0.007305945;  
+ir_cross_loss: 0.007643068;  
+R1:0.8694;   R10:0.9607;  R20:0.9816;  mAP:0.8086;  mINP:0.6628
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 61;Time: 2026-05-31 13:02:56;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.07018748;  i2i_id_loss: 0.065451846;  
+rgmfd_orth_loss: 0.0011130618;  rgmfd_gate_loss: 6.422819e-06;  
+tri_loss_rgb: 0.0019339673;  tri_loss_ir: 0.0019636455;  
+r2i_cmo_loss: 0.15713179;  i2r_cmo_loss: 0.16749614;  
+rgmfd_rel_loss: 0.030640448;  rgb_cross_loss: 0.007587991;  
+ir_cross_loss: 0.0075309877;  
+R1:0.8597;   R10:0.9592;  R20:0.9806;  mAP:0.8039;  mINP:0.6618
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 62;Time: 2026-05-31 13:05:01;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.06827773;  i2i_id_loss: 0.06506489;  
+rgmfd_orth_loss: 0.0011051431;  rgmfd_gate_loss: 7.0513643e-06;  
+tri_loss_rgb: 0.0018575434;  tri_loss_ir: 0.0018846755;  
+r2i_cmo_loss: 0.1570336;  i2r_cmo_loss: 0.16439702;  
+rgmfd_rel_loss: 0.03011165;  rgb_cross_loss: 0.0071230824;  
+ir_cross_loss: 0.007432586;  
+R1:0.8626;   R10:0.9617;  R20:0.9816;  mAP:0.8052;  mINP:0.6589
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 63;Time: 2026-05-31 13:07:13;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.067938104;  i2i_id_loss: 0.06443703;  
+rgmfd_orth_loss: 0.0011017501;  rgmfd_gate_loss: 7.5244334e-06;  
+tri_loss_rgb: 0.0017264659;  tri_loss_ir: 0.0017479303;  
+r2i_cmo_loss: 0.15426065;  i2r_cmo_loss: 0.16299735;  
+rgmfd_rel_loss: 0.029296244;  rgb_cross_loss: 0.0071112798;  
+ir_cross_loss: 0.0075559043;  
+R1:0.8617;   R10:0.9612;  R20:0.9777;  mAP:0.8033;  mINP:0.6590
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 64;Time: 2026-05-31 13:09:11;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.06977968;  i2i_id_loss: 0.064934306;  
+rgmfd_orth_loss: 0.0010975236;  rgmfd_gate_loss: 8.458172e-06;  
+tri_loss_rgb: 0.0018731251;  tri_loss_ir: 0.0019367309;  
+r2i_cmo_loss: 0.15548836;  i2r_cmo_loss: 0.16486165;  
+rgmfd_rel_loss: 0.029408388;  rgb_cross_loss: 0.0075920234;  
+ir_cross_loss: 0.007955341;  
+R1:0.8631;   R10:0.9612;  R20:0.9796;  mAP:0.7997;  mINP:0.6498
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 65;Time: 2026-05-31 13:11:18;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.0672991;  i2i_id_loss: 0.063395955;  
+rgmfd_orth_loss: 0.001093473;  rgmfd_gate_loss: 8.638096e-06;  
+tri_loss_rgb: 0.0017945041;  tri_loss_ir: 0.0018381577;  
+r2i_cmo_loss: 0.15355682;  i2r_cmo_loss: 0.16273637;  
+rgmfd_rel_loss: 0.028783595;  rgb_cross_loss: 0.0069268127;  
+ir_cross_loss: 0.007297813;  
+R1:0.8563;   R10:0.9563;  R20:0.9757;  mAP:0.7958;  mINP:0.6552
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 66;Time: 2026-05-31 13:13:25;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.068643704;  i2i_id_loss: 0.06348607;  
+rgmfd_orth_loss: 0.0010930701;  rgmfd_gate_loss: 9.6713775e-06;  
+tri_loss_rgb: 0.0017515618;  tri_loss_ir: 0.0018167298;  
+r2i_cmo_loss: 0.15348613;  i2r_cmo_loss: 0.16194399;  
+rgmfd_rel_loss: 0.028436642;  rgb_cross_loss: 0.0075069875;  
+ir_cross_loss: 0.007745827;  
+R1:0.8583;   R10:0.9626;  R20:0.9777;  mAP:0.7994;  mINP:0.6563
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 67;Time: 2026-05-31 13:15:33;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.06625187;  i2i_id_loss: 0.06109309;  
+rgmfd_orth_loss: 0.0010895707;  rgmfd_gate_loss: 9.834614e-06;  
+tri_loss_rgb: 0.0015849503;  tri_loss_ir: 0.0016365582;  
+r2i_cmo_loss: 0.14962554;  i2r_cmo_loss: 0.16180679;  
+rgmfd_rel_loss: 0.027907562;  rgb_cross_loss: 0.007099343;  
+ir_cross_loss: 0.007177924;  
+R1:0.8485;   R10:0.9612;  R20:0.9801;  mAP:0.7990;  mINP:0.6549
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 68;Time: 2026-05-31 13:17:39;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.067136094;  i2i_id_loss: 0.062433574;  
+rgmfd_orth_loss: 0.0010873695;  rgmfd_gate_loss: 1.0508593e-05;  
+tri_loss_rgb: 0.0017192969;  tri_loss_ir: 0.0017563769;  
+r2i_cmo_loss: 0.15059446;  i2r_cmo_loss: 0.1607263;  
+rgmfd_rel_loss: 0.027801681;  rgb_cross_loss: 0.007316829;  
+ir_cross_loss: 0.0077312817;  
+R1:0.8583;   R10:0.9612;  R20:0.9782;  mAP:0.7980;  mINP:0.6574
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 69;Time: 2026-05-31 13:19:44;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.500000000000001e-05
+r2r_id_loss: 0.066182755;  i2i_id_loss: 0.061975382;  
+rgmfd_orth_loss: 0.0010802073;  rgmfd_gate_loss: 1.1356554e-05;  
+tri_loss_rgb: 0.0017432278;  tri_loss_ir: 0.0017648247;  
+r2i_cmo_loss: 0.14971924;  i2r_cmo_loss: 0.16189882;  
+rgmfd_rel_loss: 0.02751271;  rgb_cross_loss: 0.0072156736;  
+ir_cross_loss: 0.007731333;  
+R1:0.8592;   R10:0.9602;  R20:0.9825;  mAP:0.7988;  mINP:0.6520
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 70;Time: 2026-05-31 13:21:49;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.064565964;  i2i_id_loss: 0.058372892;  
+rgmfd_orth_loss: 0.0010860044;  rgmfd_gate_loss: 1.1695446e-05;  
+tri_loss_rgb: 0.0017064145;  tri_loss_ir: 0.0017531215;  
+r2i_cmo_loss: 0.15065749;  i2r_cmo_loss: 0.15840721;  
+rgmfd_rel_loss: 0.027216302;  rgb_cross_loss: 0.0068383287;  
+ir_cross_loss: 0.0068755606;  
+R1:0.8495;   R10:0.9597;  R20:0.9772;  mAP:0.7962;  mINP:0.6553
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 71;Time: 2026-05-31 13:23:54;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06048967;  i2i_id_loss: 0.055563517;  
+rgmfd_orth_loss: 0.00107895;  rgmfd_gate_loss: 1.1619182e-05;  
+tri_loss_rgb: 0.0015233471;  tri_loss_ir: 0.0015397961;  
+r2i_cmo_loss: 0.14440906;  i2r_cmo_loss: 0.1560464;  
+rgmfd_rel_loss: 0.026573358;  rgb_cross_loss: 0.006235284;  
+ir_cross_loss: 0.006182688;  
+R1:0.8539;   R10:0.9602;  R20:0.9772;  mAP:0.7980;  mINP:0.6568
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 72;Time: 2026-05-31 13:26:00;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.061942928;  i2i_id_loss: 0.055995066;  
+rgmfd_orth_loss: 0.0010826486;  rgmfd_gate_loss: 1.1515071e-05;  
+tri_loss_rgb: 0.0016701013;  tri_loss_ir: 0.0017027357;  
+r2i_cmo_loss: 0.1461468;  i2r_cmo_loss: 0.15361828;  
+rgmfd_rel_loss: 0.026603874;  rgb_cross_loss: 0.006354966;  
+ir_cross_loss: 0.006737577;  
+R1:0.8583;   R10:0.9612;  R20:0.9796;  mAP:0.7988;  mINP:0.6575
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 73;Time: 2026-05-31 13:28:07;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.062268734;  i2i_id_loss: 0.056880705;  
+rgmfd_orth_loss: 0.001079184;  rgmfd_gate_loss: 1.1441917e-05;  
+tri_loss_rgb: 0.0017215769;  tri_loss_ir: 0.0017615298;  
+r2i_cmo_loss: 0.14504597;  i2r_cmo_loss: 0.15548894;  
+rgmfd_rel_loss: 0.026577592;  rgb_cross_loss: 0.006357558;  
+ir_cross_loss: 0.0065974817;  
+R1:0.8539;   R10:0.9612;  R20:0.9791;  mAP:0.7984;  mINP:0.6573
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 74;Time: 2026-05-31 13:30:16;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06310058;  i2i_id_loss: 0.055917446;  
+rgmfd_orth_loss: 0.0010804336;  rgmfd_gate_loss: 1.15153525e-05;  
+tri_loss_rgb: 0.0015781214;  tri_loss_ir: 0.0016212212;  
+r2i_cmo_loss: 0.14465736;  i2r_cmo_loss: 0.15395862;  
+rgmfd_rel_loss: 0.026515912;  rgb_cross_loss: 0.0067110267;  
+ir_cross_loss: 0.006415633;  
+R1:0.8553;   R10:0.9583;  R20:0.9791;  mAP:0.7998;  mINP:0.6565
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 75;Time: 2026-05-31 13:32:23;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.0628878;  i2i_id_loss: 0.056633845;  
+rgmfd_orth_loss: 0.001078403;  rgmfd_gate_loss: 1.1547871e-05;  
+tri_loss_rgb: 0.0015479748;  tri_loss_ir: 0.0015925202;  
+r2i_cmo_loss: 0.14489958;  i2r_cmo_loss: 0.1513301;  
+rgmfd_rel_loss: 0.026361685;  rgb_cross_loss: 0.006430787;  
+ir_cross_loss: 0.0066392003;  
+R1:0.8534;   R10:0.9607;  R20:0.9796;  mAP:0.7983;  mINP:0.6571
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 76;Time: 2026-05-31 13:34:27;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06221674;  i2i_id_loss: 0.05681127;  
+rgmfd_orth_loss: 0.001080332;  rgmfd_gate_loss: 1.1604686e-05;  
+tri_loss_rgb: 0.001508574;  tri_loss_ir: 0.0015748175;  
+r2i_cmo_loss: 0.14317884;  i2r_cmo_loss: 0.15287386;  
+rgmfd_rel_loss: 0.026317723;  rgb_cross_loss: 0.0066065956;  
+ir_cross_loss: 0.0065944823;  
+R1:0.8524;   R10:0.9626;  R20:0.9806;  mAP:0.8018;  mINP:0.6605
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 77;Time: 2026-05-31 13:36:32;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06236788;  i2i_id_loss: 0.05641559;  
+rgmfd_orth_loss: 0.0010778995;  rgmfd_gate_loss: 1.1693923e-05;  
+tri_loss_rgb: 0.0015499889;  tri_loss_ir: 0.0015770404;  
+r2i_cmo_loss: 0.14176564;  i2r_cmo_loss: 0.15323552;  
+rgmfd_rel_loss: 0.0262978;  rgb_cross_loss: 0.0066079325;  
+ir_cross_loss: 0.006635433;  
+R1:0.8626;   R10:0.9607;  R20:0.9806;  mAP:0.8028;  mINP:0.6613
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 78;Time: 2026-05-31 13:38:37;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.062206794;  i2i_id_loss: 0.056756385;  
+rgmfd_orth_loss: 0.0010751091;  rgmfd_gate_loss: 1.1782169e-05;  
+tri_loss_rgb: 0.0015688314;  tri_loss_ir: 0.0016070077;  
+r2i_cmo_loss: 0.14050667;  i2r_cmo_loss: 0.15229645;  
+rgmfd_rel_loss: 0.026171217;  rgb_cross_loss: 0.0064202147;  
+ir_cross_loss: 0.006757472;  
+R1:0.8558;   R10:0.9607;  R20:0.9786;  mAP:0.7996;  mINP:0.6592
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 79;Time: 2026-05-31 13:40:42;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06269044;  i2i_id_loss: 0.057408113;  
+rgmfd_orth_loss: 0.0010746344;  rgmfd_gate_loss: 1.1941598e-05;  
+tri_loss_rgb: 0.0015601479;  tri_loss_ir: 0.0015871008;  
+r2i_cmo_loss: 0.14056978;  i2r_cmo_loss: 0.15086862;  
+rgmfd_rel_loss: 0.02601341;  rgb_cross_loss: 0.0066665234;  
+ir_cross_loss: 0.0066637658;  
+R1:0.8631;   R10:0.9626;  R20:0.9806;  mAP:0.8022;  mINP:0.6585
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 80;Time: 2026-05-31 13:42:48;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.063517846;  i2i_id_loss: 0.057498913;  
+rgmfd_orth_loss: 0.0010755846;  rgmfd_gate_loss: 1.19203405e-05;  
+tri_loss_rgb: 0.0015246426;  tri_loss_ir: 0.0015902217;  
+r2i_cmo_loss: 0.14271136;  i2r_cmo_loss: 0.14881803;  
+rgmfd_rel_loss: 0.0259889;  rgb_cross_loss: 0.00658784;  
+ir_cross_loss: 0.0068824105;  
+R1:0.8549;   R10:0.9597;  R20:0.9811;  mAP:0.8008;  mINP:0.6611
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 81;Time: 2026-05-31 13:44:56;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.0621698;  i2i_id_loss: 0.0558545;  
+rgmfd_orth_loss: 0.0010788847;  rgmfd_gate_loss: 1.21091e-05;  
+tri_loss_rgb: 0.0015551556;  tri_loss_ir: 0.0016113111;  
+r2i_cmo_loss: 0.14037724;  i2r_cmo_loss: 0.15007918;  
+rgmfd_rel_loss: 0.025985869;  rgb_cross_loss: 0.0066743884;  
+ir_cross_loss: 0.0063863816;  
+R1:0.8553;   R10:0.9607;  R20:0.9767;  mAP:0.7998;  mINP:0.6582
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 82;Time: 2026-05-31 13:47:05;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.061426483;  i2i_id_loss: 0.058483414;  
+rgmfd_orth_loss: 0.0010722522;  rgmfd_gate_loss: 1.22331585e-05;  
+tri_loss_rgb: 0.0015066364;  tri_loss_ir: 0.0015254284;  
+r2i_cmo_loss: 0.13967885;  i2r_cmo_loss: 0.15061;  
+rgmfd_rel_loss: 0.02589901;  rgb_cross_loss: 0.0063598086;  
+ir_cross_loss: 0.0069797155;  
+R1:0.8549;   R10:0.9602;  R20:0.9816;  mAP:0.8000;  mINP:0.6593
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 83;Time: 2026-05-31 13:49:10;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06323827;  i2i_id_loss: 0.058223046;  
+rgmfd_orth_loss: 0.0010741218;  rgmfd_gate_loss: 1.2363823e-05;  
+tri_loss_rgb: 0.0016322074;  tri_loss_ir: 0.001654284;  
+r2i_cmo_loss: 0.13901368;  i2r_cmo_loss: 0.15324026;  
+rgmfd_rel_loss: 0.026021106;  rgb_cross_loss: 0.006864939;  
+ir_cross_loss: 0.0068393196;  
+R1:0.8573;   R10:0.9621;  R20:0.9767;  mAP:0.8008;  mINP:0.6603
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 84;Time: 2026-05-31 13:51:14;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06228779;  i2i_id_loss: 0.05686481;  
+rgmfd_orth_loss: 0.0010727263;  rgmfd_gate_loss: 1.2579456e-05;  
+tri_loss_rgb: 0.001583825;  tri_loss_ir: 0.0016064345;  
+r2i_cmo_loss: 0.14001141;  i2r_cmo_loss: 0.15120322;  
+rgmfd_rel_loss: 0.025977;  rgb_cross_loss: 0.0068260054;  
+ir_cross_loss: 0.006534748;  
+R1:0.8549;   R10:0.9583;  R20:0.9767;  mAP:0.7986;  mINP:0.6566
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 85;Time: 2026-05-31 13:53:18;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.061841007;  i2i_id_loss: 0.05774398;  
+rgmfd_orth_loss: 0.0010702736;  rgmfd_gate_loss: 1.2552628e-05;  
+tri_loss_rgb: 0.0014982035;  tri_loss_ir: 0.0015194025;  
+r2i_cmo_loss: 0.13797502;  i2r_cmo_loss: 0.15090623;  
+rgmfd_rel_loss: 0.025744371;  rgb_cross_loss: 0.006746336;  
+ir_cross_loss: 0.006849786;  
+R1:0.8549;   R10:0.9617;  R20:0.9801;  mAP:0.7998;  mINP:0.6579
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 86;Time: 2026-05-31 13:55:23;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06235883;  i2i_id_loss: 0.057512164;  
+rgmfd_orth_loss: 0.0010697277;  rgmfd_gate_loss: 1.2686662e-05;  
+tri_loss_rgb: 0.0015559722;  tri_loss_ir: 0.0015989181;  
+r2i_cmo_loss: 0.13880816;  i2r_cmo_loss: 0.14887074;  
+rgmfd_rel_loss: 0.02558955;  rgb_cross_loss: 0.00674069;  
+ir_cross_loss: 0.0069031566;  
+R1:0.8602;   R10:0.9626;  R20:0.9777;  mAP:0.8012;  mINP:0.6588
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 87;Time: 2026-05-31 13:57:28;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.062096115;  i2i_id_loss: 0.05628024;  
+rgmfd_orth_loss: 0.0010735106;  rgmfd_gate_loss: 1.2925213e-05;  
+tri_loss_rgb: 0.0015394066;  tri_loss_ir: 0.0015895377;  
+r2i_cmo_loss: 0.13909088;  i2r_cmo_loss: 0.14942247;  
+rgmfd_rel_loss: 0.025704611;  rgb_cross_loss: 0.006755275;  
+ir_cross_loss: 0.006590907;  
+R1:0.8587;   R10:0.9607;  R20:0.9786;  mAP:0.7990;  mINP:0.6572
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 88;Time: 2026-05-31 13:59:32;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.061856218;  i2i_id_loss: 0.056978837;  
+rgmfd_orth_loss: 0.0010697101;  rgmfd_gate_loss: 1.305944e-05;  
+tri_loss_rgb: 0.0015397214;  tri_loss_ir: 0.0015778907;  
+r2i_cmo_loss: 0.14071715;  i2r_cmo_loss: 0.14925446;  
+rgmfd_rel_loss: 0.02576216;  rgb_cross_loss: 0.006559687;  
+ir_cross_loss: 0.006970837;  
+R1:0.8636;   R10:0.9621;  R20:0.9791;  mAP:0.7998;  mINP:0.6573
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 89;Time: 2026-05-31 14:01:40;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06278319;  i2i_id_loss: 0.05758146;  
+rgmfd_orth_loss: 0.0010696554;  rgmfd_gate_loss: 1.3152631e-05;  
+tri_loss_rgb: 0.0015066153;  tri_loss_ir: 0.0015407461;  
+r2i_cmo_loss: 0.14070553;  i2r_cmo_loss: 0.14858098;  
+rgmfd_rel_loss: 0.025620997;  rgb_cross_loss: 0.006724985;  
+ir_cross_loss: 0.0069779665;  
+R1:0.8602;   R10:0.9617;  R20:0.9782;  mAP:0.7993;  mINP:0.6575
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 90;Time: 2026-05-31 14:03:48;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.061373107;  i2i_id_loss: 0.056706317;  
+rgmfd_orth_loss: 0.0010689648;  rgmfd_gate_loss: 1.3262836e-05;  
+tri_loss_rgb: 0.0014032313;  tri_loss_ir: 0.0014445286;  
+r2i_cmo_loss: 0.1393274;  i2r_cmo_loss: 0.1477188;  
+rgmfd_rel_loss: 0.025484165;  rgb_cross_loss: 0.0064828047;  
+ir_cross_loss: 0.0069436817;  
+R1:0.8602;   R10:0.9617;  R20:0.9782;  mAP:0.8010;  mINP:0.6567
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 91;Time: 2026-05-31 14:05:54;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.060581587;  i2i_id_loss: 0.05673897;  
+rgmfd_orth_loss: 0.0010693385;  rgmfd_gate_loss: 1.3313654e-05;  
+tri_loss_rgb: 0.0014299151;  tri_loss_ir: 0.0014673849;  
+r2i_cmo_loss: 0.13763867;  i2r_cmo_loss: 0.1486573;  
+rgmfd_rel_loss: 0.025407784;  rgb_cross_loss: 0.0064512137;  
+ir_cross_loss: 0.006802419;  
+R1:0.8573;   R10:0.9592;  R20:0.9782;  mAP:0.7984;  mINP:0.6559
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 92;Time: 2026-05-31 14:07:57;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06261232;  i2i_id_loss: 0.056658123;  
+rgmfd_orth_loss: 0.0010674294;  rgmfd_gate_loss: 1.3525347e-05;  
+tri_loss_rgb: 0.0014697461;  tri_loss_ir: 0.0015100834;  
+r2i_cmo_loss: 0.13776985;  i2r_cmo_loss: 0.14941996;  
+rgmfd_rel_loss: 0.02552923;  rgb_cross_loss: 0.0066235135;  
+ir_cross_loss: 0.006814938;  
+R1:0.8510;   R10:0.9597;  R20:0.9777;  mAP:0.7961;  mINP:0.6545
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 93;Time: 2026-05-31 14:10:01;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06209837;  i2i_id_loss: 0.056238465;  
+rgmfd_orth_loss: 0.0010649402;  rgmfd_gate_loss: 1.3629766e-05;  
+tri_loss_rgb: 0.001510268;  tri_loss_ir: 0.0015647452;  
+r2i_cmo_loss: 0.14081272;  i2r_cmo_loss: 0.1474751;  
+rgmfd_rel_loss: 0.02552899;  rgb_cross_loss: 0.00665164;  
+ir_cross_loss: 0.0069681164;  
+R1:0.8539;   R10:0.9587;  R20:0.9782;  mAP:0.7977;  mINP:0.6554
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 94;Time: 2026-05-31 14:12:05;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.060718857;  i2i_id_loss: 0.05562569;  
+rgmfd_orth_loss: 0.0010683972;  rgmfd_gate_loss: 1.3524004e-05;  
+tri_loss_rgb: 0.0014562049;  tri_loss_ir: 0.0014784465;  
+r2i_cmo_loss: 0.13813767;  i2r_cmo_loss: 0.14701597;  
+rgmfd_rel_loss: 0.025319157;  rgb_cross_loss: 0.0065187914;  
+ir_cross_loss: 0.0065671043;  
+R1:0.8563;   R10:0.9592;  R20:0.9791;  mAP:0.7979;  mINP:0.6542
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 95;Time: 2026-05-31 14:14:09;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06147405;  i2i_id_loss: 0.05607048;  
+rgmfd_orth_loss: 0.0010665378;  rgmfd_gate_loss: 1.3467633e-05;  
+tri_loss_rgb: 0.0014923523;  tri_loss_ir: 0.0015701307;  
+r2i_cmo_loss: 0.13931471;  i2r_cmo_loss: 0.14531663;  
+rgmfd_rel_loss: 0.02523293;  rgb_cross_loss: 0.0064876135;  
+ir_cross_loss: 0.006559619;  
+R1:0.8592;   R10:0.9612;  R20:0.9777;  mAP:0.7989;  mINP:0.6565
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 96;Time: 2026-05-31 14:16:13;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.062447898;  i2i_id_loss: 0.055826187;  
+rgmfd_orth_loss: 0.0010662063;  rgmfd_gate_loss: 1.37382185e-05;  
+tri_loss_rgb: 0.001497535;  tri_loss_ir: 0.0015428554;  
+r2i_cmo_loss: 0.13678992;  i2r_cmo_loss: 0.14973898;  
+rgmfd_rel_loss: 0.025474954;  rgb_cross_loss: 0.0067401472;  
+ir_cross_loss: 0.0067435936;  
+R1:0.8626;   R10:0.9597;  R20:0.9796;  mAP:0.8009;  mINP:0.6565
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 97;Time: 2026-05-31 14:18:17;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06302465;  i2i_id_loss: 0.057572782;  
+rgmfd_orth_loss: 0.0010662075;  rgmfd_gate_loss: 1.3723724e-05;  
+tri_loss_rgb: 0.0015552209;  tri_loss_ir: 0.0015897643;  
+r2i_cmo_loss: 0.1378755;  i2r_cmo_loss: 0.14795485;  
+rgmfd_rel_loss: 0.02525708;  rgb_cross_loss: 0.0067688986;  
+ir_cross_loss: 0.007249157;  
+R1:0.8563;   R10:0.9587;  R20:0.9782;  mAP:0.7978;  mINP:0.6572
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 98;Time: 2026-05-31 14:20:23;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06129968;  i2i_id_loss: 0.05618047;  
+rgmfd_orth_loss: 0.0010652364;  rgmfd_gate_loss: 1.3865465e-05;  
+tri_loss_rgb: 0.0014113729;  tri_loss_ir: 0.0014417785;  
+r2i_cmo_loss: 0.13643607;  i2r_cmo_loss: 0.14866938;  
+rgmfd_rel_loss: 0.0252763;  rgb_cross_loss: 0.006595406;  
+ir_cross_loss: 0.006793748;  
+R1:0.8602;   R10:0.9602;  R20:0.9806;  mAP:0.8013;  mINP:0.6582
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 99;Time: 2026-05-31 14:22:31;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.061328255;  i2i_id_loss: 0.05563854;  
+rgmfd_orth_loss: 0.0010667415;  rgmfd_gate_loss: 1.3990651e-05;  
+tri_loss_rgb: 0.0014318947;  tri_loss_ir: 0.0014541923;  
+r2i_cmo_loss: 0.13647127;  i2r_cmo_loss: 0.14750814;  
+rgmfd_rel_loss: 0.025154326;  rgb_cross_loss: 0.0065935208;  
+ir_cross_loss: 0.006711975;  
+R1:0.8607;   R10:0.9602;  R20:0.9791;  mAP:0.7987;  mINP:0.6533
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 100;Time: 2026-05-31 14:24:37;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06131485;  i2i_id_loss: 0.056673523;  
+rgmfd_orth_loss: 0.0010625852;  rgmfd_gate_loss: 1.4172207e-05;  
+tri_loss_rgb: 0.0013721571;  tri_loss_ir: 0.001401872;  
+r2i_cmo_loss: 0.13550904;  i2r_cmo_loss: 0.14807755;  
+rgmfd_rel_loss: 0.0249884;  rgb_cross_loss: 0.006543726;  
+ir_cross_loss: 0.0068704197;  
+R1:0.8583;   R10:0.9583;  R20:0.9782;  mAP:0.8004;  mINP:0.6584
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 101;Time: 2026-05-31 14:26:41;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06255076;  i2i_id_loss: 0.056089427;  
+rgmfd_orth_loss: 0.0010655901;  rgmfd_gate_loss: 1.4172239e-05;  
+tri_loss_rgb: 0.0014951444;  tri_loss_ir: 0.0015370296;  
+r2i_cmo_loss: 0.13957979;  i2r_cmo_loss: 0.14670621;  
+rgmfd_rel_loss: 0.025183288;  rgb_cross_loss: 0.0068921656;  
+ir_cross_loss: 0.006831452;  
+R1:0.8583;   R10:0.9612;  R20:0.9791;  mAP:0.7990;  mINP:0.6556
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 102;Time: 2026-05-31 14:28:45;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06136181;  i2i_id_loss: 0.055711072;  
+rgmfd_orth_loss: 0.0010644848;  rgmfd_gate_loss: 1.4346377e-05;  
+tri_loss_rgb: 0.0014837856;  tri_loss_ir: 0.0015246965;  
+r2i_cmo_loss: 0.1377297;  i2r_cmo_loss: 0.14605647;  
+rgmfd_rel_loss: 0.02498209;  rgb_cross_loss: 0.0065554865;  
+ir_cross_loss: 0.006700541;  
+R1:0.8573;   R10:0.9607;  R20:0.9811;  mAP:0.7994;  mINP:0.6566
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 103;Time: 2026-05-31 14:30:49;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.060497757;  i2i_id_loss: 0.05526681;  
+rgmfd_orth_loss: 0.0010645135;  rgmfd_gate_loss: 1.4509998e-05;  
+tri_loss_rgb: 0.001549191;  tri_loss_ir: 0.0015797915;  
+r2i_cmo_loss: 0.13694583;  i2r_cmo_loss: 0.14732087;  
+rgmfd_rel_loss: 0.025072018;  rgb_cross_loss: 0.006734726;  
+ir_cross_loss: 0.0066778627;  
+R1:0.8573;   R10:0.9602;  R20:0.9791;  mAP:0.7974;  mINP:0.6519
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 104;Time: 2026-05-31 14:32:54;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.061311234;  i2i_id_loss: 0.055420723;  
+rgmfd_orth_loss: 0.0010631167;  rgmfd_gate_loss: 1.4612809e-05;  
+tri_loss_rgb: 0.0014164624;  tri_loss_ir: 0.0014492712;  
+r2i_cmo_loss: 0.13740867;  i2r_cmo_loss: 0.14715925;  
+rgmfd_rel_loss: 0.025077691;  rgb_cross_loss: 0.0066923304;  
+ir_cross_loss: 0.0067084585;  
+R1:0.8592;   R10:0.9578;  R20:0.9777;  mAP:0.7989;  mINP:0.6560
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 105;Time: 2026-05-31 14:34:58;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.061544504;  i2i_id_loss: 0.056127574;  
+rgmfd_orth_loss: 0.0010602796;  rgmfd_gate_loss: 1.4758709e-05;  
+tri_loss_rgb: 0.001489756;  tri_loss_ir: 0.0015210889;  
+r2i_cmo_loss: 0.13883168;  i2r_cmo_loss: 0.14581016;  
+rgmfd_rel_loss: 0.0249956;  rgb_cross_loss: 0.006696017;  
+ir_cross_loss: 0.0067182193;  
+R1:0.8553;   R10:0.9597;  R20:0.9786;  mAP:0.7988;  mINP:0.6544
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 106;Time: 2026-05-31 14:37:04;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.060014658;  i2i_id_loss: 0.05574109;  
+rgmfd_orth_loss: 0.0010585057;  rgmfd_gate_loss: 1.4659967e-05;  
+tri_loss_rgb: 0.0013883348;  tri_loss_ir: 0.0014433528;  
+r2i_cmo_loss: 0.13531828;  i2r_cmo_loss: 0.14623308;  
+rgmfd_rel_loss: 0.024813874;  rgb_cross_loss: 0.006480407;  
+ir_cross_loss: 0.00692155;  
+R1:0.8573;   R10:0.9592;  R20:0.9767;  mAP:0.7973;  mINP:0.6543
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 107;Time: 2026-05-31 14:39:11;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06090576;  i2i_id_loss: 0.056023736;  
+rgmfd_orth_loss: 0.0010612828;  rgmfd_gate_loss: 1.47853725e-05;  
+tri_loss_rgb: 0.0014453598;  tri_loss_ir: 0.0014848614;  
+r2i_cmo_loss: 0.13830869;  i2r_cmo_loss: 0.14727165;  
+rgmfd_rel_loss: 0.025008887;  rgb_cross_loss: 0.0066970983;  
+ir_cross_loss: 0.006810563;  
+R1:0.8578;   R10:0.9558;  R20:0.9782;  mAP:0.7984;  mINP:0.6545
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 108;Time: 2026-05-31 14:41:17;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06105637;  i2i_id_loss: 0.05625093;  
+rgmfd_orth_loss: 0.0010595426;  rgmfd_gate_loss: 1.4907037e-05;  
+tri_loss_rgb: 0.0014845879;  tri_loss_ir: 0.0015486851;  
+r2i_cmo_loss: 0.13782537;  i2r_cmo_loss: 0.14534275;  
+rgmfd_rel_loss: 0.024804244;  rgb_cross_loss: 0.006600278;  
+ir_cross_loss: 0.0069243186;  
+R1:0.8573;   R10:0.9617;  R20:0.9830;  mAP:0.8009;  mINP:0.6591
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 109;Time: 2026-05-31 14:43:19;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.059603132;  i2i_id_loss: 0.055381317;  
+rgmfd_orth_loss: 0.0010588857;  rgmfd_gate_loss: 1.4985247e-05;  
+tri_loss_rgb: 0.0014561623;  tri_loss_ir: 0.0015000401;  
+r2i_cmo_loss: 0.13557419;  i2r_cmo_loss: 0.14618593;  
+rgmfd_rel_loss: 0.024774756;  rgb_cross_loss: 0.006628469;  
+ir_cross_loss: 0.006723972;  
+R1:0.8539;   R10:0.9573;  R20:0.9772;  mAP:0.7984;  mINP:0.6559
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 110;Time: 2026-05-31 14:45:21;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.061381366;  i2i_id_loss: 0.05531738;  
+rgmfd_orth_loss: 0.0010588638;  rgmfd_gate_loss: 1.5152686e-05;  
+tri_loss_rgb: 0.0014902335;  tri_loss_ir: 0.0015513812;  
+r2i_cmo_loss: 0.1365508;  i2r_cmo_loss: 0.14482;  
+rgmfd_rel_loss: 0.024681572;  rgb_cross_loss: 0.006774476;  
+ir_cross_loss: 0.006549058;  
+R1:0.8573;   R10:0.9597;  R20:0.9796;  mAP:0.8001;  mINP:0.6556
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 111;Time: 2026-05-31 14:47:23;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.061246295;  i2i_id_loss: 0.056914378;  
+rgmfd_orth_loss: 0.0010593847;  rgmfd_gate_loss: 1.536698e-05;  
+tri_loss_rgb: 0.0015130459;  tri_loss_ir: 0.0015592414;  
+r2i_cmo_loss: 0.13633196;  i2r_cmo_loss: 0.14846174;  
+rgmfd_rel_loss: 0.024912966;  rgb_cross_loss: 0.006938394;  
+ir_cross_loss: 0.0070318915;  
+R1:0.8500;   R10:0.9612;  R20:0.9777;  mAP:0.7957;  mINP:0.6528
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 112;Time: 2026-05-31 14:49:31;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.060443874;  i2i_id_loss: 0.054644514;  
+rgmfd_orth_loss: 0.001056106;  rgmfd_gate_loss: 1.5387912e-05;  
+tri_loss_rgb: 0.0014184911;  tri_loss_ir: 0.0014721552;  
+r2i_cmo_loss: 0.13712265;  i2r_cmo_loss: 0.14517638;  
+rgmfd_rel_loss: 0.024682319;  rgb_cross_loss: 0.006513788;  
+ir_cross_loss: 0.006658372;  
+R1:0.8573;   R10:0.9602;  R20:0.9816;  mAP:0.7993;  mINP:0.6567
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 113;Time: 2026-05-31 14:51:39;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06029289;  i2i_id_loss: 0.05534312;  
+rgmfd_orth_loss: 0.00105615;  rgmfd_gate_loss: 1.5362739e-05;  
+tri_loss_rgb: 0.0014134333;  tri_loss_ir: 0.0014359634;  
+r2i_cmo_loss: 0.13653062;  i2r_cmo_loss: 0.14439374;  
+rgmfd_rel_loss: 0.024521468;  rgb_cross_loss: 0.006543647;  
+ir_cross_loss: 0.0069170925;  
+R1:0.8558;   R10:0.9592;  R20:0.9772;  mAP:0.7950;  mINP:0.6536
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 114;Time: 2026-05-31 14:53:46;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.059855886;  i2i_id_loss: 0.05511875;  
+rgmfd_orth_loss: 0.0010602903;  rgmfd_gate_loss: 1.5443213e-05;  
+tri_loss_rgb: 0.0014442673;  tri_loss_ir: 0.0014693763;  
+r2i_cmo_loss: 0.13595292;  i2r_cmo_loss: 0.14365517;  
+rgmfd_rel_loss: 0.024435425;  rgb_cross_loss: 0.0066361865;  
+ir_cross_loss: 0.0066910917;  
+R1:0.8587;   R10:0.9607;  R20:0.9786;  mAP:0.7981;  mINP:0.6558
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 115;Time: 2026-05-31 14:55:53;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.05939298;  i2i_id_loss: 0.054038923;  
+rgmfd_orth_loss: 0.0010582104;  rgmfd_gate_loss: 1.5380096e-05;  
+tri_loss_rgb: 0.0013782628;  tri_loss_ir: 0.001404157;  
+r2i_cmo_loss: 0.1339949;  i2r_cmo_loss: 0.14552523;  
+rgmfd_rel_loss: 0.024440426;  rgb_cross_loss: 0.00671769;  
+ir_cross_loss: 0.0064446204;  
+R1:0.8529;   R10:0.9597;  R20:0.9777;  mAP:0.7959;  mINP:0.6530
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 116;Time: 2026-05-31 14:58:01;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.06001923;  i2i_id_loss: 0.056700323;  
+rgmfd_orth_loss: 0.0010575601;  rgmfd_gate_loss: 1.562657e-05;  
+tri_loss_rgb: 0.0015264185;  tri_loss_ir: 0.0015597472;  
+r2i_cmo_loss: 0.13461138;  i2r_cmo_loss: 0.14540605;  
+rgmfd_rel_loss: 0.02448655;  rgb_cross_loss: 0.006669569;  
+ir_cross_loss: 0.0068579963;  
+R1:0.8549;   R10:0.9563;  R20:0.9806;  mAP:0.7966;  mINP:0.6556
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 117;Time: 2026-05-31 15:00:02;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.05971868;  i2i_id_loss: 0.05489805;  
+rgmfd_orth_loss: 0.00105836;  rgmfd_gate_loss: 1.580416e-05;  
+tri_loss_rgb: 0.0014765386;  tri_loss_ir: 0.001552906;  
+r2i_cmo_loss: 0.13669682;  i2r_cmo_loss: 0.1455328;  
+rgmfd_rel_loss: 0.024533898;  rgb_cross_loss: 0.0065316944;  
+ir_cross_loss: 0.006839876;  
+R1:0.8524;   R10:0.9587;  R20:0.9782;  mAP:0.7964;  mINP:0.6550
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 118;Time: 2026-05-31 15:02:10;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.059703562;  i2i_id_loss: 0.0554739;  
+rgmfd_orth_loss: 0.0010564108;  rgmfd_gate_loss: 1.5809192e-05;  
+tri_loss_rgb: 0.0014362981;  tri_loss_ir: 0.0014900687;  
+r2i_cmo_loss: 0.13744454;  i2r_cmo_loss: 0.14383364;  
+rgmfd_rel_loss: 0.024480341;  rgb_cross_loss: 0.0065657273;  
+ir_cross_loss: 0.007065899;  
+R1:0.8510;   R10:0.9573;  R20:0.9791;  mAP:0.7944;  mINP:0.6524
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================
+CRE diag | r2i:92.54%(186/201) i2r:92.54%(186/201) common:92.54%(186/201) specific:0.00%(0/0) remain:0.00%(0/0) cov_c:97.57% cov_all:97.57% stable_c:100.00%
+=================================================
+Epoch: 119;Time: 2026-05-31 15:04:11;Setting: logs/regdb/t2v/trial_2/2026年05月31日-09:18:05
+e_lr: 5.5000000000000016e-06
+r2r_id_loss: 0.060368236;  i2i_id_loss: 0.05496246;  
+rgmfd_orth_loss: 0.0010541431;  rgmfd_gate_loss: 1.5906948e-05;  
+tri_loss_rgb: 0.0014552108;  tri_loss_ir: 0.0014738075;  
+r2i_cmo_loss: 0.13572173;  i2r_cmo_loss: 0.14471383;  
+rgmfd_rel_loss: 0.024419777;  rgb_cross_loss: 0.006526085;  
+ir_cross_loss: 0.0066975164;  
+R1:0.8549;   R10:0.9578;  R20:0.9796;  mAP:0.7972;  mINP:0.6544
+                   Best_R1: 0.8694;    Best mAP: 0.8127
+=================================================

@@ -1,0 +1,38 @@
+python3 main.py \
+--dataset sysu \
+--debug wsl \
+--save-path sysu_agw \
+--arch resnet \
+--stage1-epoch 20 \
+--milestone 30 70 \
+--lr 0.0003 \
+--device 2 \
+--search-mode indoor \
+--cre-sample-rate 1.0 \
+--enable-trrm 0 \
+--enable-remain-gate 0 \
+--enable-rdl 0 \
+--rgmfd-start-epoch 0 \
+--enable-rgmfd 1 \
+--rgmfd-rel-weight 0.1 \
+--rgmfd-orth-weight 0.05 \
+--rgmfd-gate-reg-weight 0.01 \
+--enable-ddclae 1 \
+--ddclae-start-epoch 0 \
+--ddclae-weight 0.02 \
+--ddclae-temperature 2.0 \
+--ddclae-mid 0.35 \
+--ddclae-bandwidth 0.35 \
+--ddclae-min-weight 0.05 \
+--model-path /root/WSL_ReID/logs/sysu/indoor/2026年06月05日-08:54:28/models/stage1/model_20.pth
+
+# python3 main.py \
+# --dataset sysu \
+# --debug wsl \
+# --save-path sysu_agw \
+# --arch resnet \
+# --stage1-epoch 20 \
+# --milestone 30 70 \
+# --lr 0.0003 \
+# --device 2 \
+# --search-mode indoor 
